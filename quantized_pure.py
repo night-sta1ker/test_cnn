@@ -15,6 +15,9 @@ print("Input:", Sx, Zx)
 
 
 # ===== multiplier 计算 =====
+MULT_BITS = 16
+MULT_FRAC_BITS = MULT_BITS - 1
+
 def quantize_multiplier(M):
     if M == 0:
         return 0, 0
@@ -22,7 +25,10 @@ def quantize_multiplier(M):
     while M < 0.5:
         M *= 2
         shift += 1
-    multiplier = int(round(M * (1 << 31)))
+    multiplier = int(round(M * (1 << MULT_FRAC_BITS)))
+    if multiplier == (1 << MULT_FRAC_BITS):
+        multiplier >>= 1
+        shift -= 1
     return multiplier, shift
 
 
@@ -52,7 +58,7 @@ def process_layer(weight, bias, Sx, Zx, Sout, Zout):
     return {
         "Wq": Wq,
         "b_int32": b_int32,
-        "multiplier": np.array(multiplier, dtype=np.int32),
+        "multiplier": np.array(multiplier, dtype=np.int16),
         "shift": np.array(shift, dtype=np.int32),
         "Zx": Zx,
         "Zout": Zout
@@ -200,7 +206,7 @@ with open("model_params.h", "w") as f:
     # ===== conv0 =====
     dump_array(f, "c0_w", data["c0_w"], "int8_t")
     dump_array(f, "c0_b", data["c0_b"], "int32_t")
-    dump_array(f, "c0_m", data["c0_m"], "int32_t")
+    dump_array(f, "c0_m", data["c0_m"], "int16_t")
     dump_array(f, "c0_s", data["c0_s"], "int32_t")
 
     dump_scalar(f, "c0_Zx", data["c0_Zx"], "int32_t")
@@ -210,7 +216,7 @@ with open("model_params.h", "w") as f:
     # ===== conv1 =====
     dump_array(f, "c1_w", data["c1_w"], "int8_t")
     dump_array(f, "c1_b", data["c1_b"], "int32_t")
-    dump_array(f, "c1_m", data["c1_m"], "int32_t")
+    dump_array(f, "c1_m", data["c1_m"], "int16_t")
     dump_array(f, "c1_s", data["c1_s"], "int32_t")
 
     dump_scalar(f, "c1_Zx", data["c1_Zx"], "int32_t")
@@ -220,7 +226,7 @@ with open("model_params.h", "w") as f:
     # ===== fc =====
     dump_array(f, "fc_w", data["fc_w"], "int8_t")
     dump_array(f, "fc_b", data["fc_b"], "int32_t")
-    dump_array(f, "fc_m", data["fc_m"], "int32_t")
+    dump_array(f, "fc_m", data["fc_m"], "int16_t")
     dump_array(f, "fc_s", data["fc_s"], "int32_t")
 
     dump_scalar(f, "fc_Zx", data["fc_Zx"], "int32_t")

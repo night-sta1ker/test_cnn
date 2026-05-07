@@ -1,0 +1,141 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ly/Desktop/test_cnn/rtl
+T_opt
+!s110 1778065512
+V=0ViY=8V6LX]cH=MgIKhE3
+Z1 04 16 4 work tb_Process_unit1 fast 0
+=1-d85ed3518368-69fb2068-100-443c
+Z2 o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z3 OL;O;10.4;61
+R0
+T_opt1
+!s110 1778068876
+Vn`DVeb[9nn_N48BWh_m]l1
+R1
+=1-d85ed3518368-69fb2d8c-188-19c0
+R2
+n@_opt1
+R3
+R0
+T_opt2
+!s110 1778141239
+V8d1IIK:26N^6^R51enihk0
+04 15 4 work tb_Process_unit fast 0
+=1-d85ed3518368-69fc4836-3b5-3950
+R2
+n@_opt2
+R3
+vPE
+Z4 !s110 1778141238
+!i10b 1
+!s100 N0oai3RMPVEHgNiBT<78g3
+I3CX_oZRN1Ge;aa68jW=d?3
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1778140984
+8PE.v
+FPE.v
+L0 5
+Z6 OL;L;10.4;61
+r1
+!s85 0
+31
+Z7 !s108 1778141238.768000
+Z8 !s107 tb_Process_unit1.v|process_unit1.v|PE.v|
+Z9 !s90 PE.v|process_unit1.v|tb_Process_unit1.v|
+!i113 0
+Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@p@e
+vProcess_unit
+R4
+!i10b 1
+!s100 >jgd;;a8>;4WL`lkX35mI3
+IP<HPDPSJ:YckPh>e7YF`m2
+R5
+R0
+w1778141230
+Z11 8process_unit1.v
+Z12 Fprocess_unit1.v
+L0 10
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+n@process_unit
+vProcess_unit1
+Z13 !s110 1778068875
+!i10b 1
+!s100 ]coAzT_<:H_nC`=>KFL@02
+IL3B?<L^amFGAJc1?03Lbl2
+R5
+R0
+w1778068745
+R11
+R12
+L0 13
+R6
+r1
+!s85 0
+31
+Z14 !s108 1778068875.267000
+R8
+R9
+!i113 0
+R10
+n@process_unit1
+vtb_Process_unit
+R4
+!i10b 1
+!s100 bm81B9@T?A^8J1OkQb5o10
+Ie`FDBe5CAHeh_JlcP`I6>1
+R5
+R0
+w1778139734
+Z15 8tb_Process_unit1.v
+Z16 Ftb_Process_unit1.v
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+ntb_@process_unit
+vtb_Process_unit1
+R13
+!i10b 1
+!s100 FGBgCC[em2MFnV22l=Nma0
+IY0T]<7]``NRDeZbT@f@Ud2
+R5
+R0
+w1778066553
+R15
+R16
+L0 8
+R6
+r1
+!s85 0
+31
+R14
+R8
+R9
+!i113 0
+R10
+ntb_@process_unit1

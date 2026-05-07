@@ -31,13 +31,15 @@
 #define INPUT_MEAN 0.1307f
 #define INPUT_STD 0.3081f
 
+#define MULT_FRAC_BITS 15
+
 // ============================
 // 结构体定义
 // ============================
 typedef struct {
     const int8_t  *W;
     const int32_t *b;
-    const int32_t *mult;
+    const int16_t *mult;
     const int32_t *shift;
     int32_t Zx;
     int32_t Zout;
@@ -51,8 +53,6 @@ typedef struct {
 
 
 
-	float S0 = in_scale;
-	int32_t Z0 = in_zp;
 // ============================
 // 模型加载（从 .h 绑定）
 // ============================
@@ -139,7 +139,7 @@ static void conv2d_int8(
                 acc += layer->b[oc];
 
                 int64_t tmp = (int64_t)acc * layer->mult[oc];
-                int32_t q = (int32_t)(tmp >> (31 + layer->shift[oc]));
+                int32_t q = (int32_t)(tmp >> (MULT_FRAC_BITS + layer->shift[oc]));
 
                 q += layer->Zout;
 
@@ -211,7 +211,7 @@ static void linear_int8(
         acc += layer->b[o];
 
         int64_t tmp = (int64_t)acc * layer->mult[o];
-        int32_t q = (int32_t)(tmp >> (31 + layer->shift[o]));
+        int32_t q = (int32_t)(tmp >> (MULT_FRAC_BITS + layer->shift[o]));
 
         q += layer->Zout;
 
@@ -236,7 +236,7 @@ static uint8_t *load_mnist_image_quantized(const char *filename, int index)
         fread(&p, 1, 1, fp);
 
         float x = (p / 255.0f - INPUT_MEAN) / INPUT_STD;
-        int32_t q = (int32_t)lrintf(x / S0) + Z0;
+        int32_t q = (int32_t)lrintf(x / in_scale) + in_zp;
 
         img[i] = clamp_u8(q);
     }
@@ -273,13 +273,13 @@ static int inference(uint8_t *input, Model *m)
     maxpool2d_q8(conv1_out, pool1_out, 16, 26, 26);
 
     conv2d_int8(pool1_out, conv2_out, &m->conv2, 16, 13, 13, 32, 3);
-    	/* ===== DEBUG: Conv1 输出分布 ===== */
-		int min = 255, max = 0;
-		for (int i = 0; i < 16*26*26; i++) {
-		    if (conv2_out[i] < min) min = conv2_out[i];
-		    if (conv2_out[i] > max) max = conv2_out[i];
-		}
-		printf("conv2: min=%d max=%d\n", min, max);
+    	/* ===== DEBUG: Conv2 输出分布 ===== */
+//		int min = 255, max = 0;
+//		for (int i = 0; i < 16*26*26; i++) {
+//		    if (conv2_out[i] < min) min = conv2_out[i];
+//		    if (conv2_out[i] > max) max = conv2_out[i];
+//		}
+//		printf("conv2: min=%d max=%d\n", min, max);
 		/* ================================= */
     
     maxpool2d_q8(conv2_out, pool2_out, 32, 11, 11);
@@ -302,12 +302,17 @@ static int inference(uint8_t *input, Model *m)
 // ============================
 // main
 // ============================
-int main()
+int main(int argc, char **argv)
 {
     Model model = load_model();
 
     int correct = 0;
-    int total = 100;
+    int total = 10000;
+    if (argc > 1) {
+        total = atoi(argv[1]);
+        if (total <= 0) total = 1;
+        if (total > 10000) total = 10000;
+    }
 
     for (int i = 0; i < total; i++) {
 
@@ -320,8 +325,14 @@ int main()
         int pred = inference(img, &model);
 
         if (pred == label) correct++;
+        else
+            printf("MISS %d: pred=%d label=%d\n", i, pred, label);
 
-        printf("%d: pred=%d label=%d\n", i, pred, label);
+        if (i < 20)
+            printf("%d: pred=%d label=%d\n", i, pred, label);
+        else if ((i + 1) % 1000 == 0)
+            printf("progress: %d/%d ACC=%.4f\n",
+                   i + 1, total, (float)correct / (float)(i + 1));
 
         free(img);
     }

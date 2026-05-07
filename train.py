@@ -37,7 +37,7 @@ optimizer = optim.Adam(model.parameters(), lr=1e-3)
 criterion = nn.CrossEntropyLoss()
 
 # 4. 训练
-for epoch in range(10):
+for epoch in range(100):
     correct = 0
     total = 0
 
