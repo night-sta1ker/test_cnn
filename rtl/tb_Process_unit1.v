@@ -12,7 +12,8 @@ module tb_Process_unit;
     reg  [7:0]  wgt_pos3, wgt_pos4, wgt_pos5;
     reg  [7:0]  wgt_pos6, wgt_pos7, wgt_pos8;
     reg         wgt_en;
-    reg  signed [31:0] mult;
+    wire        wgt_ready;
+    reg  signed [15:0] mult;
     reg  signed [7:0] shift_param;
 
     wire [63:0] out_parallel;
@@ -30,6 +31,7 @@ module tb_Process_unit;
         .wgt_pos3   (wgt_pos3), .wgt_pos4(wgt_pos4), .wgt_pos5(wgt_pos5),
         .wgt_pos6   (wgt_pos6), .wgt_pos7(wgt_pos7), .wgt_pos8(wgt_pos8),
         .wgt_en     (wgt_en),
+        .wgt_ready  (wgt_ready),
         .mult       (mult),
         .shift_param(shift_param),
         .out_parallel(out_parallel),
@@ -47,7 +49,7 @@ module tb_Process_unit;
 
     reg [7:0]         act_mem  [0:IMG_H-1][0:IMG_W-1];
     reg signed [7:0]  wgt_mem  [0:N_OC-1][0:8];
-    reg signed [31:0] mult_mem [0:N_OC-1];
+    reg signed [15:0] mult_mem [0:N_OC-1];
     reg signed [7:0] shft_mem [0:N_OC-1];
 
     reg [7:0] cap_out [0:OUT_H-1][0:OUT_W-1][0:N_OC-1];
@@ -115,10 +117,10 @@ module tb_Process_unit;
     function [7:0] golden_pixel;
         input [4:0] r, c, oc;
         reg signed [31:0] g_acc;
-        reg signed [63:0] g_tmp;
+        reg signed [47:0] g_tmp;
         reg signed [7:0]  g_tmp2;
         reg [5:0] g_shamt;
-        reg signed [31:0] g_val;
+        reg signed [47:0] g_val;
         integer ki, kj;
         begin
             g_acc = 0;
@@ -130,7 +132,7 @@ module tb_Process_unit;
                 end
             end
             g_tmp   = g_acc * mult_mem[oc];
-            g_tmp2 = $signed({1'b0, 6'd31}) + $signed(shft_mem[oc]);
+            g_tmp2 = 8'sd15 + $signed(shft_mem[oc]);
             g_shamt = (g_tmp2 > 8'sd63) ? 6'd63 : (g_tmp2 < 8'sd0) ? 6'd0 : g_tmp2[5:0];
             g_val   = $signed(g_tmp >>> g_shamt);
             if ($signed(g_val) < $signed(32'd0))
@@ -177,7 +179,7 @@ module tb_Process_unit;
                     wgt_pos0    <= 8'd0; wgt_pos1 <= 8'd0; wgt_pos2 <= 8'd0;
                     wgt_pos3    <= 8'd0; wgt_pos4 <= 8'd0; wgt_pos5 <= 8'd0;
                     wgt_pos6    <= 8'd0; wgt_pos7 <= 8'd0; wgt_pos8 <= 8'd0;
-                    mult        <= 32'd0;
+                    mult        <= 16'sd0;
                     shift_param <= 8'sd0;
                 end
                 act_en <= 1'b1;
@@ -267,8 +269,8 @@ module tb_Process_unit;
             for (ch = 0; ch < N_OC; ch = ch + 1) begin
                 for (i = 0; i < 9; i = i + 1)
                     wgt_mem[ch][i] = ((ch + i) % 2 == 0) ? 8'd1 : -8'd1;
-                mult_mem[ch]  = 32'd128;
-                shft_mem[ch]  = -8'sd24;
+                mult_mem[ch]  = 16'sd128;
+                shft_mem[ch]  = -8'sd8;
             end
         end
     endtask
@@ -282,8 +284,8 @@ module tb_Process_unit;
             for (ch = 0; ch < N_OC; ch = ch + 1) begin
                 for (i = 0; i < 9; i = i + 1)
                     wgt_mem[ch][i] = ((ch + i) % 2 == 0) ? 8'd127 : -8'd127;
-                mult_mem[ch]  = 32'd256;
-                shft_mem[ch]  = -8'sd20;
+                mult_mem[ch]  = 16'sd256;
+                shft_mem[ch]  = -8'sd4;
             end
         end
     endtask
@@ -298,7 +300,7 @@ module tb_Process_unit;
                 for (w = 0; w < 9; w = w + 1)
                     wgt_mem[ch][w] = {$random} % 255 - 127;
                 mult_mem[ch]  = {$random} % 2048 + 1;
-                shft_mem[ch]  = {$random} % 25 - 20;
+                shft_mem[ch]  = {$random} % 25 - 4;
             end
         end
     endtask
@@ -313,7 +315,7 @@ module tb_Process_unit;
         wgt_pos3    = 8'd0; wgt_pos4 = 8'd0; wgt_pos5 = 8'd0;
         wgt_pos6    = 8'd0; wgt_pos7 = 8'd0; wgt_pos8 = 8'd0;
         wgt_en      = 1'b0;
-        mult        = 32'd0;
+        mult        = 16'sd0;
         shift_param = 8'sd0;
 
         $display("============================================");

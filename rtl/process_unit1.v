@@ -20,8 +20,9 @@ module Process_unit (
     input  wire [7:0]  wgt_pos3, wgt_pos4, wgt_pos5,
     input  wire [7:0]  wgt_pos6, wgt_pos7, wgt_pos8,
     input  wire        wgt_en,
+    output wire        wgt_ready,
 
-    input  wire signed [31:0] mult,
+    input  wire signed [15:0] mult,
     input  wire signed [7:0] shift_param,
 
     output reg  [63:0] out_parallel,
@@ -42,16 +43,17 @@ module Process_unit (
 
     localparam PH_SETUP_A = 3'd0;
     localparam PH_SETUP_B = 3'd1;
-    localparam PH_PASS0   = 3'd2;
-    localparam PH_OUT0    = 3'd3;
-    localparam PH_OUT1    = 3'd4;
+    localparam PH_MAC0    = 3'd2;
+    localparam PH_Q0      = 3'd3;
+    localparam PH_MAC1    = 3'd4;
+    localparam PH_Q1      = 3'd5;
 
     reg [1:0] state;
     reg [2:0] phase;
 
     // Weights (16ch × 9)
     reg signed [7:0]  wgt_reg  [0:N_OC-1][0:8];
-    reg signed [31:0] mult_reg [0:N_OC-1];
+    reg signed [15:0] mult_reg [0:N_OC-1];
     reg signed [7:0]  shft_reg [0:N_OC-1];
 
     // Line buffers
@@ -95,7 +97,7 @@ module Process_unit (
     wire [7:0] win5 = line_buf[br1][out_col + 5'd2];
     wire [7:0] win6 = line_buf[br2][out_col];
     wire [7:0] win7 = line_buf[br2][out_col + 5'd1];
-    wire [7:0] win8 = (phase == PH_PASS0) ? act : line_buf[br2][out_col + 5'd2];
+    wire [7:0] win8 = (phase == PH_MAC0) ? act : line_buf[br2][out_col + 5'd2];
 
     // -----------------------------------------------------------------------
     // 8 PE instances — pass-muxed weights
@@ -111,6 +113,18 @@ module Process_unit (
     assign ch_off[7] = pass ? 4'd15 : 4'd7;
 
     wire signed [31:0] pe_acc [0:N_PE-1];
+    wire signed [47:0] pe_quant_prod [0:N_PE-1];
+    wire               pe_mode = (phase == PH_Q0 || phase == PH_Q1);
+
+    wire signed [15:0] q_mult  [0:7];
+    wire signed [7:0]  q_shift [0:7];
+    genvar qm;
+    generate
+        for (qm = 0; qm < 8; qm = qm + 1) begin : QMUX
+            assign q_mult[qm]  = (phase == PH_Q0) ? mult_reg[qm] : mult_reg[qm+8];
+            assign q_shift[qm] = (phase == PH_Q0) ? shft_reg[qm] : shft_reg[qm+8];
+        end
+    endgenerate
 
     genvar gi;
     generate
@@ -126,7 +140,10 @@ module Process_unit (
                 .wgt4(wgt_reg[ch_off[gi]][4]), .wgt5(wgt_reg[ch_off[gi]][5]),
                 .wgt6(wgt_reg[ch_off[gi]][6]), .wgt7(wgt_reg[ch_off[gi]][7]),
                 .wgt8(wgt_reg[ch_off[gi]][8]),
-                .acc(pe_acc[gi])
+                .quant_mult(q_mult[gi]),
+                .mode(pe_mode),
+                .acc(pe_acc[gi]),
+                .quant_prod(pe_quant_prod[gi])
             );
         end
     endgenerate
@@ -137,26 +154,15 @@ module Process_unit (
     //   PASS1: pe_acc = ch8-15, params = mult[8..15] / shift[8..15]
     //   No acc_buf needed — each channel quantized in the cycle it's computed
     // -----------------------------------------------------------------------
-    wire signed [31:0] q_mult  [0:7];
-    wire signed [7:0]  q_shift [0:7];
-    genvar qm;
-    generate
-        for (qm = 0; qm < 8; qm = qm + 1) begin : QMUX
-            assign q_mult[qm]  = (phase == PH_OUT0) ? mult_reg[qm] : mult_reg[qm+8];
-            assign q_shift[qm] = (phase == PH_OUT0) ? shft_reg[qm] : shft_reg[qm+8];
-        end
-    endgenerate
-
     wire [7:0] q_comb [0:7];
     genvar qi;
     generate
         for (qi = 0; qi < 8; qi = qi + 1) begin : QUANT
-            wire signed [63:0] qt    = pe_acc[qi] * q_mult[qi];
-            wire signed [7:0]  q_sum = 8'sd31 + $signed(q_shift[qi]);
+            wire signed [7:0]  q_sum = 8'sd15 + $signed(q_shift[qi]);
             wire [5:0]         qs    = ($signed(q_sum) > 8'sd63)  ? 6'd63
                                      : ($signed(q_sum) < 8'sd0)   ? 6'd0
                                      : q_sum[5:0];
-            wire signed [31:0] qv    = $signed(qt >>> qs);
+            wire signed [47:0] qv    = $signed(pe_quant_prod[qi] >>> qs);
             assign q_comb[qi] = ($signed(qv) < $signed(32'd0))   ? 8'd0
                               : ($signed(qv) > $signed(32'd255)) ? 8'd255
                               : qv[7:0];
@@ -166,10 +172,12 @@ module Process_unit (
     // -----------------------------------------------------------------------
     // act_ready
     // -----------------------------------------------------------------------
+    assign wgt_ready = (state == S_LOAD_INIT) && !wgt_done;
+
     assign act_ready = (state == S_LOAD_INIT) ? 1'b1
                      : (state == S_STREAM)
                          ? (phase == PH_SETUP_A || phase == PH_SETUP_B
-                         || phase == PH_OUT1)
+                         || phase == PH_Q1)
                      : 1'b0;
 
     // -----------------------------------------------------------------------
@@ -178,7 +186,7 @@ module Process_unit (
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             out_parallel <= 64'd0;
-        end else if (state == S_STREAM && (phase == PH_OUT0 || phase == PH_OUT1)) begin
+        end else if (state == S_STREAM && (phase == PH_Q0 || phase == PH_Q1)) begin
             out_parallel <= {
                 q_comb[7], q_comb[6], q_comb[5], q_comb[4],
                 q_comb[3], q_comb[2], q_comb[1], q_comb[0]
@@ -279,25 +287,29 @@ module Process_unit (
                                 line_buf[br2][1] <= act;
                                 load_col <= 5'd2;
                                 pass     <= 1'b0;
-                                phase    <= PH_PASS0;
+                                phase    <= PH_MAC0;
                             end
                         end
 
-                        PH_PASS0: begin
+                        PH_MAC0: begin
                             if (act_en && load_col < IMG_W) begin
                                 line_buf[br2][load_col] <= act;
                                 load_col <= load_col + 5'd1;
                             end
-                            pass   <= 1'b1;
-                            phase  <= PH_OUT0;
+                            phase  <= PH_Q0;
                         end
 
-                        PH_OUT0: begin
+                        PH_Q0: begin
                             out_en <= 1'b1;   // low 8ch
-                            phase  <= PH_OUT1;
+                            pass   <= 1'b1;
+                            phase  <= PH_MAC1;
                         end
 
-                        PH_OUT1: begin
+                        PH_MAC1: begin
+                            phase  <= PH_Q1;
+                        end
+
+                        PH_Q1: begin
                             out_en <= 1'b1;   // high 8ch
 
                             if (out_col == OUT_W - 1) begin
@@ -315,7 +327,7 @@ module Process_unit (
                             end else begin
                                 out_col <= out_col + 5'd1;
                                 pass    <= 1'b0;
-                                phase   <= PH_PASS0;
+                                phase   <= PH_MAC0;
                             end
                         end
 

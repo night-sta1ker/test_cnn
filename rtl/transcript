@@ -2,18 +2,19 @@
 # ** Warning: (vlib-34) Library already exists at "work".
 # 
 # Model Technology ModelSim SE-64 vlog 10.4 Compiler 2014.12 Dec  3 2014
-# Start time: 16:07:18 on May 07,2026
-# vlog PE.v process_unit1.v tb_Process_unit1.v 
+# Start time: 19:47:28 on May 07,2026
+# vlog Mul9Array.v PE.v process_unit1.v tb_Process_unit1.v 
+# -- Compiling module Mul9Array
 # -- Compiling module PE
 # -- Compiling module Process_unit
 # -- Compiling module tb_Process_unit
 # 
 # Top level modules:
 # 	tb_Process_unit
-# End time: 16:07:18 on May 07,2026, Elapsed time: 0:00:00
+# End time: 19:47:28 on May 07,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -c -do "run_tb1.do" 
-# Start time: 16:07:18 on May 07,2026
+# Start time: 19:47:28 on May 07,2026
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # 
 # //  ModelSim SE-64 10.4 Dec  3 2014 
@@ -46,7 +47,7 @@
 # ============================================
 #   All 3 tests complete.
 # ============================================
-# ** Note: $finish    : tb_Process_unit1.v(340)
-#    Time: 64525 ns  Iteration: 1  Instance: /tb_Process_unit
-# End time: 16:07:20 on May 07,2026, Elapsed time: 0:00:02
+# ** Note: $finish    : tb_Process_unit1.v(342)
+#    Time: 84805 ns  Iteration: 1  Instance: /tb_Process_unit
+# End time: 19:47:30 on May 07,2026, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
