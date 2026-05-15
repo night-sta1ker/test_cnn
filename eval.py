@@ -14,14 +14,14 @@ class SimpleCNN(nn.Module):
     def __init__(self):
         super().__init__()
         self.net = nn.Sequential(
-            nn.Conv2d(1, 16, 3, 1),
+            nn.Conv2d(1, 4, 3, 1),
             nn.ReLU(),
             nn.MaxPool2d(2),
-            nn.Conv2d(16, 32, 3, 1),
+            nn.Conv2d(4, 8, 3, 1),
             nn.ReLU(),
             nn.MaxPool2d(2),
             nn.Flatten(),
-            nn.Linear(32*5*5, 10)
+            nn.Linear(8*5*5, 10)
         )
 
     def forward(self, x):

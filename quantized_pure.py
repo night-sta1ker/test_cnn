@@ -75,14 +75,14 @@ class SimpleCNN(nn.Module):
         self.dequant = quant.DeQuantStub()  # 
 
         self.net = nn.Sequential(
-            nn.Conv2d(1, 16, 3, 1),
+            nn.Conv2d(1, 4, 3, 1),
             nn.ReLU(),
             nn.MaxPool2d(2),
-            nn.Conv2d(16, 32, 3, 1),
+            nn.Conv2d(4, 8, 3, 1),
             nn.ReLU(),
             nn.MaxPool2d(2),
             nn.Flatten(),
-            nn.Linear(32*5*5, 10)
+            nn.Linear(8*5*5, 10)
         )
 
     def forward(self, x):
@@ -171,7 +171,7 @@ np.savez("model_int8_pure.npz",
     fc_Zo=layer2["Zout"],
 )
 
-print("✅ Export done: model_int8_pure.npz")
+print("Export done: model_int8_pure.npz")
 
 def dump_scalar(f, name, value, dtype):
     if dtype == "float":
@@ -232,4 +232,4 @@ with open("model_params.h", "w") as f:
     dump_scalar(f, "fc_Zx", data["fc_Zx"], "int32_t")
     dump_scalar(f, "fc_Zo", data["fc_Zo"], "int32_t")
 
-print("✅ model_params.h generated")
+print("model_params.h generated")

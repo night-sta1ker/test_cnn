@@ -1,0 +1,420 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ly/Desktop/test_cnn/version3_0
+T_opt
+!s110 1778829415
+V;MTA0dFdM]S^7Y7YQ4;Z`1
+Z1 04 12 4 work trans_wgt_tb fast 0
+=1-d85ed3518368-6a06c867-1c8-d510
+Z2 o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z3 OL;O;10.4;61
+R0
+T_opt1
+!s110 1778681918
+V`5CE]<m95OKa^0`ln3]?72
+R1
+=1-d85ed3518368-6a04883d-39c-b98
+R2
+n@_opt1
+R3
+R0
+T_opt2
+!s110 1778829015
+VIZ9kAd?G3CWem;H>7igR60
+R1
+=1-d85ed3518368-6a06c6d3-200-7180
+R2
+n@_opt2
+R3
+R0
+T_opt3
+!s110 1778829549
+V`4[W4S3RE?Z;=QW0_kHFX1
+R1
+=1-d85ed3518368-6a06c8ed-306-4c34
+R2
+n@_opt3
+R3
+R0
+T_opt4
+!s110 1778840930
+VI?k]cEW>]nPUbM7V7miHb1
+04 18 4 work sequencer_align_tb fast 0
+=1-d85ed3518368-6a06f562-23b-84c
+R2
+n@_opt4
+R3
+vact_line_ram
+Z4 !s110 1778840929
+!i10b 1
+!s100 jSL:Vb6`TEL?O:7C1:UiA3
+I=R<P7M7;zg5AKGR>8z7Ni1
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z6 w1778677874
+Z7 8act_line_ram.v
+Z8 Fact_line_ram.v
+L0 32
+Z9 OL;L;10.4;61
+r1
+!s85 0
+31
+Z10 !s108 1778840929.063000
+Z11 !s107 sequencer_align_tb.v|Sequencer.v|trans_wgt.v|trans_act.v|act_line_ram.v|
+Z12 !s90 act_line_ram.v|trans_act.v|trans_wgt.v|Sequencer.v|sequencer_align_tb.v|
+!i113 0
+Z13 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+varray_tb
+Z14 !s110 1778681289
+!i10b 1
+!s100 iSQ9B]UW8^=TTkNC_cTCP0
+IIn8iE@7nIRjgcRcO?Mol^1
+R5
+R0
+Z15 w1778586106
+Z16 8array_tb.v
+Z17 Farray_tb.v
+L0 69
+R9
+r1
+!s85 0
+31
+Z18 !s108 1778681289.281000
+Z19 !s107 array_tb.v|SystolicPE.v|SystolicArray4x4.v|Sequencer.v|trans_wgt.v|trans_act.v|act_line_ram.v|
+Z20 !s90 act_line_ram.v|trans_act.v|trans_wgt.v|Sequencer.v|SystolicArray4x4.v|SystolicPE.v|array_tb.v|
+!i113 0
+R13
+varray_tb_4x9_9x4
+Z21 !s110 1778501758
+!i10b 1
+!s100 ;]W83KHFX?hngdc]]zXVN0
+IDXTKe;UAelFa1SZTfYBDT1
+R5
+R0
+w1778501744
+8array_tb_4x9_9x4.v
+Farray_tb_4x9_9x4.v
+L0 6
+R9
+r1
+!s85 0
+31
+Z22 !s108 1778501758.845000
+Z23 !s107 array_tb.v|array_tb_4x9_9x4.v|array_tb_4x9_9x4_min.v|Sequencer.v|SystolicArray4x4.v|SystolicPE.v|
+Z24 !s90 SystolicPE.v|SystolicArray4x4.v|Sequencer.v|array_tb_4x9_9x4_min.v|array_tb_4x9_9x4.v|array_tb.v|
+!i113 0
+R13
+varray_tb_4x9_9x4_min
+R21
+!i10b 1
+!s100 ^S>88;De480Sa_PmjLEfD1
+IC?DDHNG9Ogzo6HWZzLM^>1
+R5
+R0
+w1778501591
+8array_tb_4x9_9x4_min.v
+Farray_tb_4x9_9x4_min.v
+L0 3
+R9
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R13
+vdpram
+R4
+!i10b 1
+!s100 W54U[_FeZWKj:UH9F?DZV1
+IZ:3[I<jf@]mkY7FQXTDZ43
+R5
+R0
+R6
+R7
+R8
+L0 3
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+vMatmulCase
+R14
+!i10b 1
+!s100 C=;EX248k6^lF^gK^UZ9n3
+IJ==Z^L7R`;lgc=Z=oNZ<[0
+R5
+R0
+R15
+R16
+R17
+L0 3
+R9
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 0
+R13
+n@matmul@case
+vSequencer
+R4
+!i10b 1
+!s100 W@Wb[A`:mEChVzY35CcbG3
+IE6[1zjWm73ZW3ia163BV01
+R5
+R0
+w1778840921
+8Sequencer.v
+FSequencer.v
+L0 3
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+n@sequencer
+vSequencer_1
+!s110 1778589270
+!i10b 1
+!s100 7=_3ohcZTJH27Kc6iUP]a0
+I[j?7Udz;1JR0ZYM3[loIo3
+R5
+R0
+w1778589249
+8Sequencer_1.v
+FSequencer_1.v
+L0 13
+R9
+r1
+!s85 0
+31
+!s108 1778589270.047000
+!s107 Sequencer_1.v|
+!s90 Sequencer_1.v|
+!i113 0
+R13
+n@sequencer_1
+vsequencer_align_tb
+R4
+!i10b 1
+!s100 P;5;oU24FzKlnVX4<9nIG2
+IK6<cWG_QQnJJ?>L8MnXGn2
+R5
+R0
+Z25 w1778838312
+Z26 8sequencer_align_tb.v
+Z27 Fsequencer_align_tb.v
+L0 358
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+vsequencer_tb
+!s110 1778830301
+!i10b 1
+!s100 0m1z[B`j`zocc?SlgZMFz2
+I=7PA[1heTzWJF^JiKN]Z:1
+R5
+R0
+w1778681777
+8sequencer_tb.v
+Fsequencer_tb.v
+L0 3
+R9
+r1
+!s85 0
+31
+!s108 1778830301.863000
+!s107 sequencer_tb.v|Sequencer.v|trans_wgt.v|trans_act.v|act_line_ram.v|
+!s90 act_line_ram.v|trans_act.v|trans_wgt.v|Sequencer.v|sequencer_tb.v|
+!i113 0
+R13
+vSequencerAlignCase
+R4
+!i10b 1
+!s100 zLG6U:_MFWh2ldcF4AX=o2
+IU<G;0Q11SGRiFHd`[YalE2
+R5
+R0
+R25
+R26
+R27
+L0 3
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+n@sequencer@align@case
+vspram
+!s110 1778677751
+!i10b 1
+!s100 9H?<:9o@k6OZi5HO^064o0
+IAEW@@0`XCV1DOi7eYM0;Z2
+R5
+R0
+w1778677687
+R7
+R8
+L0 3
+R9
+r1
+!s85 0
+31
+!s108 1778677751.914000
+Z28 !s107 trans_act_tb.v|trans_act.v|act_line_ram.v|
+Z29 !s90 act_line_ram.v|trans_act.v|trans_act_tb.v|
+!i113 0
+R13
+vSystolicArray4x4
+R14
+!i10b 1
+!s100 =38U]a;ATF>NoV=[g<[cW3
+IOCng96Hn=jN=fKCoH@`]O0
+R5
+R0
+w1778501486
+8SystolicArray4x4.v
+FSystolicArray4x4.v
+L0 25
+R9
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 0
+R13
+n@systolic@array4x4
+vSystolicPE
+R14
+!i10b 1
+!s100 Q`de=k7Bjmz^UFFYOZ7AV0
+IINh`6K?RO`SgL7_Xd94M:1
+R5
+R0
+w1778415750
+8SystolicPE.v
+FSystolicPE.v
+L0 17
+R9
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 0
+R13
+n@systolic@p@e
+vtrans_act
+R4
+!i10b 1
+!s100 =A[4Qn[[Cc[?z8gGSa9=b2
+Id1ID8?edg4_DRchTREaP;2
+R5
+R0
+w1778831493
+8trans_act.v
+Ftrans_act.v
+L0 3
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+vtrans_act_tb
+!s110 1778831395
+!i10b 1
+!s100 W?cm:;_A6[?[Vg4iH[bHX3
+Im0[=28EW`;@`^hHSLm<kz0
+R5
+R0
+w1778831356
+8trans_act_tb.v
+Ftrans_act_tb.v
+L0 3
+R9
+r1
+!s85 0
+31
+!s108 1778831394.486000
+R28
+R29
+!i113 0
+R13
+vtrans_wgt
+R4
+!i10b 1
+!s100 O_N4W4a[I=k1MY?gQHJDN0
+Ial3n[`aG5[iUCH^_mEdTJ0
+R5
+R0
+w1778840894
+8trans_wgt.v
+Ftrans_wgt.v
+L0 3
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 0
+R13
+vtrans_wgt_tb
+!s110 1778830071
+!i10b 1
+!s100 VGQe?jGfh<i?lGHjgfIm<1
+IkN=G@Y]LO>;^DeTMeQTIV0
+R5
+R0
+w1778829990
+8trans_wgt_tb.v
+Ftrans_wgt_tb.v
+L0 3
+R9
+r1
+!s85 0
+31
+!s108 1778830071.361000
+!s107 trans_wgt_tb.v|trans_wgt.v|
+!s90 trans_wgt.v|trans_wgt_tb.v|
+!i113 0
+R13

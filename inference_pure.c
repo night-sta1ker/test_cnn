@@ -9,7 +9,7 @@
 #define IN_H 28
 #define IN_W 28
 
-#define CONV1_OUT_C 16
+#define CONV1_OUT_C 4
 #define CONV1_K 3
 #define CONV1_OUT_H 26
 #define CONV1_OUT_W 26
@@ -17,7 +17,7 @@
 #define POOL1_H 13
 #define POOL1_W 13
 
-#define CONV2_OUT_C 32
+#define CONV2_OUT_C 8
 #define CONV2_K 3
 #define CONV2_OUT_H 11
 #define CONV2_OUT_W 11
@@ -25,7 +25,7 @@
 #define POOL2_H 5
 #define POOL2_W 5
 
-#define FC_IN (32 * 5 * 5)
+#define FC_IN (8 * 5 * 5)
 #define FC_OUT 10
 
 #define INPUT_MEAN 0.1307f
@@ -262,29 +262,21 @@ static int load_label(const char *filename, int index)
 // ============================
 static int inference(uint8_t *input, Model *m)
 {
-    uint8_t conv1_out[16*26*26];
-    uint8_t pool1_out[16*13*13];
-    uint8_t conv2_out[32*11*11];
-    uint8_t pool2_out[32*5*5];
+    uint8_t conv1_out[4*26*26];
+    uint8_t pool1_out[4*13*13];
+    uint8_t conv2_out[8*11*11];
+    uint8_t pool2_out[8*5*5];
     uint8_t fc_out[10];
 
-    conv2d_int8(input, conv1_out, &m->conv1, 1, 28, 28, 16, 3);
+    conv2d_int8(input, conv1_out, &m->conv1, 1, 28, 28, 4, 3);
 
-    maxpool2d_q8(conv1_out, pool1_out, 16, 26, 26);
+    maxpool2d_q8(conv1_out, pool1_out, 4, 26, 26);
 
-    conv2d_int8(pool1_out, conv2_out, &m->conv2, 16, 13, 13, 32, 3);
-    	/* ===== DEBUG: Conv2 输出分布 ===== */
-//		int min = 255, max = 0;
-//		for (int i = 0; i < 16*26*26; i++) {
-//		    if (conv2_out[i] < min) min = conv2_out[i];
-//		    if (conv2_out[i] > max) max = conv2_out[i];
-//		}
-//		printf("conv2: min=%d max=%d\n", min, max);
-		/* ================================= */
-    
-    maxpool2d_q8(conv2_out, pool2_out, 32, 11, 11);
+    conv2d_int8(pool1_out, conv2_out, &m->conv2, 4, 13, 13, 8, 3);
 
-    linear_int8(pool2_out, fc_out, &m->fc, 800, 10);
+    maxpool2d_q8(conv2_out, pool2_out, 8, 11, 11);
+
+    linear_int8(pool2_out, fc_out, &m->fc, 200, 10);
 
     int idx = 0;
     uint8_t maxv = fc_out[0];

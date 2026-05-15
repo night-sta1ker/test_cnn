@@ -1,0 +1,186 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ly/Desktop/test_cnn/version2_0
+T_opt
+!s110 1778247627
+VgG7QQQFWE;l_2g[mkj<iL0
+04 19 4 work tb_ProcessUnitMode0 fast 0
+=1-d85ed3518368-69fde7cb-0-143c
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OL;O;10.4;61
+vAccelerator
+Z1 !s110 1778247626
+!i10b 1
+!s100 SSXnN6UU7I;I8OTW:8OGD1
+IW7T?9eDWb1=BPZU9b>fLU3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1778247573
+8accelerator.v
+Faccelerator.v
+L0 3
+Z3 OL;L;10.4;61
+r1
+!s85 0
+31
+Z4 !s108 1778247626.797000
+Z5 !s107 tb_ProcessUnitMode0.v|accelerator.v|requant.v|process_unit_mode0.v|MacArray8x8.v|
+Z6 !s90 MacArray8x8.v|process_unit_mode0.v|requant.v|accelerator.v|tb_ProcessUnitMode0.v|
+!i113 0
+Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@accelerator
+vMacArray8x8
+R1
+!i10b 1
+!s100 3^cdeLfNV?C8gMM@IDm1<2
+IgbX1RhOjkBF0D;dmBkSXa1
+R2
+R0
+Z8 w1778209915
+Z9 8MacArray8x8.v
+Z10 FMacArray8x8.v
+Z11 L0 31
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 0
+R7
+n@mac@array8x8
+vMacCell
+R1
+!i10b 1
+!s100 GKD@56eh^X5[`2H7e?HAR0
+IdcMzf[idD<KL0]lF1RY>S0
+R2
+R0
+R8
+R9
+R10
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 0
+R7
+n@mac@cell
+vProcessUnitMode0
+R1
+!i10b 1
+!s100 OG=;P5o0R[]13iRmIQbnV3
+IX@kbbILn2l2n27VSY94`E0
+R2
+R0
+w1778247597
+Z12 8process_unit_mode0.v
+Z13 Fprocess_unit_mode0.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 0
+R7
+n@process@unit@mode0
+vQuantizeLane8
+!s110 1778245674
+!i10b 1
+!s100 `=ALzM]9]?6o6BChLBm9X0
+IZdoZVnT<A?a[R]1V9cd2J2
+R2
+R0
+w1778245657
+R12
+R13
+R11
+R3
+r1
+!s85 0
+31
+!s108 1778245674.638000
+!s107 tb_ProcessUnitMode0.v|process_unit_mode0.v|MacArray8x8.v|
+!s90 MacArray8x8.v|process_unit_mode0.v|tb_ProcessUnitMode0.v|
+!i113 0
+R7
+n@quantize@lane8
+vRequantLane8
+R1
+!i10b 1
+!s100 B>lz0[:bGnA=ia904z7b]2
+I<=e`gM6SNhnScF>3k6RCN1
+R2
+R0
+Z14 w1778247536
+Z15 8requant.v
+Z16 Frequant.v
+R11
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 0
+R7
+n@requant@lane8
+vRequantU8
+R1
+!i10b 1
+!s100 NaI>F^he9jJ?OGHXQB9d52
+Il^dlA3_2=9BMV_6WjEn`b1
+R2
+R0
+R14
+R15
+R16
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 0
+R7
+n@requant@u8
+vtb_ProcessUnitMode0
+R1
+!i10b 1
+!s100 iR[NA]<l>zE;aYfWZ1C@f0
+IS[fm?]MJllQVJ6`2M@`Q@2
+R2
+R0
+w1778247609
+8tb_ProcessUnitMode0.v
+Ftb_ProcessUnitMode0.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 0
+R7
+ntb_@process@unit@mode0

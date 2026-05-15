@@ -2,29 +2,29 @@
 import torch
 import struct
 
-# 加载模型参数
+# Load model parameters
 state = torch.load("model.pth", map_location="cpu")
 
-# 定义参数导出函数
+# Export parameters to binary file
 def export_params_to_bin(filename):
     with open(filename, "wb") as f:
-        # 写入参数数量
+        # Write parameter count
         param_count = len(state)
         f.write(struct.pack('I', param_count))
 
         for name, tensor in state.items():
-            # 写入参数名长度和名称
+            # Write name length and name
             name_bytes = name.encode('utf-8')
             f.write(struct.pack('I', len(name_bytes)))
             f.write(name_bytes)
 
-            # 写入形状
+            # Write shape
             shape = tensor.shape
             f.write(struct.pack('I', len(shape)))
             for dim in shape:
                 f.write(struct.pack('I', dim))
 
-            # 写入数据
+            # Write data
             data = tensor.numpy().astype('float32').flatten()
             f.write(struct.pack('I', len(data)))
             f.write(data.tobytes())
