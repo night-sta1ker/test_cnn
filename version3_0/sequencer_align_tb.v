@@ -30,6 +30,10 @@ module SequencerAlignCase #(
     wire               wgt_stream_start;
     wire [15:0]        wgt_stream_n_base;
     wire               act_stream_start;
+    wire [31:0]        act_base_addr;
+    wire [31:0]        wgt_base_addr;
+    wire               act_base_valid;
+    wire               wgt_base_valid;
 
     wire [3:0]              wgt_ld;
     wire [4*DATA_W-1:0]     wgt_in;
@@ -80,6 +84,10 @@ module SequencerAlignCase #(
         .wgt_stream_start(wgt_stream_start),
         .wgt_stream_n_base(wgt_stream_n_base),
         .act_stream_start(act_stream_start),
+        .act_base_addr(act_base_addr),
+        .wgt_base_addr(wgt_base_addr),
+        .act_base_valid(act_base_valid),
+        .wgt_base_valid(wgt_base_valid),
         .wgt_ld(wgt_ld),
         .wgt_in(wgt_in),
         .en(en),
@@ -135,12 +143,22 @@ module SequencerAlignCase #(
         begin
             $write("CASE%0d CYCLE %0d state=%0d en=%0b clear=%0b wgt_ld=%b",
                    CASE_ID, sim_cycle, dut.state, en, clear, wgt_ld);
+            $write(" | hold act=%0b/%0b wgt=%0b/%0b",
+                   dut.act_trans_hold_i, dut.act_trans_hold,
+                   dut.wgt_trans_hold_i, dut.wgt_trans_hold);
             $write(" | WGT");
             print_vec(wgt_in);
             $write(" | ACT");
             print_vec(act_in);
-            $write(" | ready act=%0b wgt=%0b", act_stream_ready, wgt_stream_ready);
-            $write(" | valid act=%0b wgt=%0b", dut.act_array_valid, dut.wgt_array_valid);
+            $write(" | stream_valid act=%0b wgt=%0b", act_stream_valid, wgt_stream_valid);
+            $write(" | stream_ready act=%0b wgt=%0b", act_stream_ready, wgt_stream_ready);
+            $write(" | array_valid act=%0b wgt=%0b", dut.act_array_valid, dut.wgt_array_valid);
+            $write(" | trans_valid act=%0b wgt=%0b", dut.act_trans_out_valid, dut.wgt_trans_out_valid);
+            $write(" | base_valid act=%0b wgt=%0b", act_base_valid, wgt_base_valid);
+            $write(" | base_addr act=%0d wgt=%0d", act_base_addr, wgt_base_addr);
+            $write(" | start act=%0b wgt=%0b", act_stream_start, wgt_stream_start);
+            $write(" | wgt_age=%0d replay_idx=%0d lead=%0d",
+                   dut.wgt_age, dut.wgt_replay_idx, dut.wgt_lead_count);
             if (dut.wgt_trans_block_done)
                 $write(" | WGT_BLOCK_DONE");
             $display("");
@@ -264,6 +282,16 @@ module SequencerAlignCase #(
                              CASE_ID, wgt_stream_n_base, sim_cycle);
                 end
 
+                if (wgt_base_valid) begin
+                    wgt_block = wgt_base_addr / 4;
+                    wgt_row = 0;
+                    wgt_ready_armed = 1'b0;
+                    wgt_stream_valid = 1'b1;
+                    drive_wgt();
+                    $display("CASE%0d WGT_BASE_REQ base=%0d at cycle %0d",
+                             CASE_ID, wgt_base_addr, sim_cycle);
+                end
+
                 if (act_stream_start && (wgt_stream_n_base != 0)) begin
                     act_next = 0;
                     act_ready_armed = 1'b0;
@@ -297,9 +325,7 @@ module SequencerAlignCase #(
                     wgt_one_cycle_ahead = 1'b0;
                 end
 
-                if (wgt_ld != 4'b0000 || dut.act_array_valid ||
-                    dut.wgt_array_valid || dut.wgt_trans_block_done || clear)
-                    print_report_line();
+                print_report_line();
 
                 sim_cycle = sim_cycle + 1;
             end

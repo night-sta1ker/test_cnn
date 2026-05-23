@@ -20,6 +20,13 @@ module sequencer_tb;
     reg [4*DATA_W-1:0] wgt_stream_in;
     reg                wgt_stream_valid;
     wire               wgt_stream_ready;
+    wire               wgt_stream_start;
+    wire [15:0]        wgt_stream_n_base;
+    wire               act_stream_start;
+    wire [31:0]        act_base_addr;
+    wire [31:0]        wgt_base_addr;
+    wire               act_base_valid;
+    wire               wgt_base_valid;
 
     wire [3:0]              wgt_ld;
     wire [4*DATA_W-1:0]     wgt_in;
@@ -61,6 +68,13 @@ module sequencer_tb;
         .wgt_stream_in(wgt_stream_in),
         .wgt_stream_valid(wgt_stream_valid),
         .wgt_stream_ready(wgt_stream_ready),
+        .wgt_stream_start(wgt_stream_start),
+        .wgt_stream_n_base(wgt_stream_n_base),
+        .act_stream_start(act_stream_start),
+        .act_base_addr(act_base_addr),
+        .wgt_base_addr(wgt_base_addr),
+        .act_base_valid(act_base_valid),
+        .wgt_base_valid(wgt_base_valid),
         .wgt_ld(wgt_ld),
         .wgt_in(wgt_in),
         .en(en),

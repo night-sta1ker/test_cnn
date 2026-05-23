@@ -37,6 +37,7 @@ module trans_wgt_tb;
     ) dut (
         .clk(clk),
         .rst_n(rst_n),
+        .hold(1'b0),
         .valid(valid),
         .k_size(16'd8),
         .n_size(16'd8),

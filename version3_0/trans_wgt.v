@@ -5,6 +5,7 @@ module trans_wgt #(
 ) (
     input  wire                     clk,
     input  wire                     rst_n,
+    input  wire                     hold,
 
     input  wire                     valid,
 
@@ -44,22 +45,13 @@ module trans_wgt #(
     reg        can_load;
     reg        can_output;
     reg        last_block;
+    reg [15:0] load_wait_idx;
     reg        replay_pending;
-    reg        replay_load_started;
-    reg        wait_replay_rows;
-    reg [15:0] replay_base;
     reg [15:0] load_idx;
-    reg        restart_active;
-    reg [1:0]  load_slot;
-    reg [15:0] slot_last_use;
-    reg        slot_safe_to_write;
-    reg [4*DATA_W-1:0] out_data_next;
-    reg [15:0] out_row_idx;
-    reg [1:0]  out_row_slot;
-    reg        out_data_has_valid;
+    reg        load_wrap_now;
+    wire       out_slot_ready;
 
-    integer load_lane;
-    integer out_lane;
+    integer lane;
     integer r;
     integer c;
 
@@ -76,43 +68,39 @@ module trans_wgt #(
 
         last_block = ((n_base + 4) >= n_size);
 
-        restart_active = replay_pending || ((state == S_RUN) && valid);
-        load_idx = load_k;
+        load_wrap_now = replay_pending && (load_k >= k_size);
+        load_idx = load_wrap_now ? 16'd0 : load_k;
 
-        load_slot = load_idx[1:0];
-        slot_last_use = row_tag[load_slot] + block_cols - 1'b1;
-        slot_safe_to_write = !row_valid[load_slot] ||
-                             wait_replay_rows ||
-                             (out_idx >= slot_last_use);
-
-        can_load = (state == S_RUN) &&
-                   ((load_k < k_size) || replay_pending || ((state == S_RUN) && valid)) &&
-                   slot_safe_to_write;
-
-        out_data_next = {4*DATA_W{1'b0}};
-        out_data_has_valid = 1'b0;
-        for (out_lane = 0; out_lane < 4; out_lane = out_lane + 1) begin
-            if ((out_lane < block_cols) && (out_idx >= out_lane)) begin
-                out_row_idx = out_idx - out_lane;
-                out_row_slot = out_row_idx[1:0];
-                if ((out_row_idx < k_size) &&
-                    row_valid[out_row_slot] &&
-                    (row_tag[out_row_slot] == out_row_idx)) begin
-                    out_data_next[out_lane*DATA_W +: DATA_W] =
-                        row_buf[out_row_slot][out_lane];
-                    out_data_has_valid = 1'b1;
-                end
-            end
-        end
-
-        can_output = out_data_ready &&
-                     !wait_replay_rows &&
-                     out_data_has_valid &&
+        can_output = !hold &&
+                     out_slot_ready &&
+                     !load_wrap_now &&
                      (block_cols != 0) &&
+                     (out_idx <= last_out_idx) &&
                      ((out_idx != 0) || (load_k >= block_cols)) &&
                      ((out_idx >= k_size) || (load_k > out_idx));
+
+        load_wait_idx = 0;
+        if ((load_idx + block_cols) > 5)
+            load_wait_idx = load_idx + block_cols - 5;
+
+        if (replay_pending && (load_idx < block_cols)) begin
+            can_load = !hold &&
+                       out_slot_ready &&
+                       (state == S_RUN) &&
+                       ((out_idx >= (k_size + load_idx)) ||
+                        (out_idx < block_cols));
+        end else begin
+            can_load = !hold &&
+                       out_slot_ready &&
+                       (state == S_RUN) &&
+                   ((load_k < k_size) || load_wrap_now) &&
+                       ((load_idx < block_cols) ||
+                        ((load_idx + block_cols) <= 5) ||
+                        (out_idx >= load_wait_idx));
+        end
     end
 
+    assign out_slot_ready = !out_data_valid || out_data_ready;
     assign in_data_ready = can_load;
 
     always @(posedge clk or negedge rst_n) begin
@@ -126,9 +114,6 @@ module trans_wgt #(
             load_k <= 0;
             out_idx <= 0;
             replay_pending <= 1'b0;
-            replay_load_started <= 1'b0;
-            wait_replay_rows <= 1'b0;
-            replay_base <= 0;
 
             for (r = 0; r < 4; r = r + 1) begin
                 row_tag[r] <= 0;
@@ -136,6 +121,7 @@ module trans_wgt #(
                 for (c = 0; c < 4; c = c + 1)
                     row_buf[r][c] <= {DATA_W{1'b0}};
             end
+        end else if (hold) begin
         end else begin
             case (state)
                 S_WAIT_BLOCK: begin
@@ -148,9 +134,6 @@ module trans_wgt #(
                         load_k <= 0;
                         out_idx <= 0;
                         replay_pending <= 1'b0;
-                        replay_load_started <= 1'b0;
-                        wait_replay_rows <= 1'b0;
-                        replay_base <= 0;
                         for (r = 0; r < 4; r = r + 1) begin
                             row_tag[r] <= 0;
                             row_valid[r] <= 1'b0;
@@ -162,41 +145,50 @@ module trans_wgt #(
                 S_RUN: begin
                     block_done <= 1'b0;
 
-                    if (valid) begin
+                    if (valid)
                         replay_pending <= 1'b1;
-                        replay_load_started <= 1'b0;
-                        wait_replay_rows <= 1'b0;
-                        replay_base <= load_k;
-                    end
 
-                    if (in_data_valid && can_load) begin
-                        row_tag[load_slot] <= load_idx;
-                        row_valid[load_slot] <= 1'b1;
+                    if (!valid && in_data_valid && can_load) begin
+                        row_slot = load_idx[1:0];
+                        row_tag[row_slot] <= load_idx;
+                        row_valid[row_slot] <= 1'b1;
 
-                        for (load_lane = 0; load_lane < 4; load_lane = load_lane + 1) begin
-                            if (load_lane < block_cols)
-                                row_buf[load_slot][load_lane] <=
-                                    in_data[load_lane*DATA_W +: DATA_W];
+                        for (lane = 0; lane < 4; lane = lane + 1) begin
+                            if (lane < block_cols)
+                                row_buf[row_slot][lane] <=
+                                    in_data[lane*DATA_W +: DATA_W];
                             else
-                                row_buf[load_slot][load_lane] <= {DATA_W{1'b0}};
+                                row_buf[row_slot][lane] <= {DATA_W{1'b0}};
                         end
 
-                        if (restart_active)
-                            replay_load_started <= 1'b1;
-                        if (replay_pending && (load_idx == (replay_base + block_cols - 1))) begin
+                        if (load_wrap_now)
+                            replay_pending <= 1'b1;
+                        else if (replay_pending && (load_idx == (block_cols - 1)))
                             replay_pending <= 1'b0;
-                            replay_load_started <= 1'b0;
-                        end
+                        if (load_wrap_now)
+                            out_idx <= 0;
                         load_k <= load_idx + 1;
                     end
 
-                    if (can_output) begin
-                        out_data <= out_data_next;
+                    if (!valid && can_output) begin
+                        out_data <= {4*DATA_W{1'b0}};
                         out_data_valid <= 1'b1;
+
+                        for (lane = 0; lane < 4; lane = lane + 1) begin
+                            if ((lane < block_cols) && (out_idx >= lane)) begin
+                                row_idx = out_idx - lane;
+                                row_slot = row_idx[1:0];
+                                if ((row_idx < k_size) &&
+                                    row_valid[row_slot] &&
+                                    (row_tag[row_slot] == row_idx))
+                                    out_data[lane*DATA_W +: DATA_W] <=
+                                        row_buf[row_slot][lane];
+                            end
+                        end
 
                         if (out_idx == last_out_idx) begin
                             if (replay_pending || (load_k < k_size)) begin
-                                out_idx <= out_idx + 1;
+                                out_idx <= 0;
                             end else if (last_block) begin
                                 done <= 1'b1;
                                 state <= S_DONE;
@@ -208,13 +200,8 @@ module trans_wgt #(
                         end else begin
                             out_idx <= out_idx + 1;
                         end
-                    end else begin
+                    end else if (out_data_valid && out_data_ready) begin
                         out_data_valid <= 1'b0;
-                    end
-
-                    if (wait_replay_rows && (load_k >= block_cols)) begin
-                        wait_replay_rows <= 1'b0;
-                        out_idx <= 0;
                     end
                 end
 
@@ -228,9 +215,6 @@ module trans_wgt #(
                         load_k <= 0;
                         out_idx <= 0;
                         replay_pending <= 1'b0;
-                        replay_load_started <= 1'b0;
-                        wait_replay_rows <= 1'b0;
-                        replay_base <= 0;
                         for (r = 0; r < 4; r = r + 1) begin
                             row_tag[r] <= 0;
                             row_valid[r] <= 1'b0;

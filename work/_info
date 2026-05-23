@@ -1,0 +1,168 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ly/Desktop/test_cnn
+T_opt
+!s110 1779011279
+VaYh>PHS6ih:[>e?ELzbQ;3
+04 12 4 work trans_act_tb fast 0
+=1-d85ed3518368-6a098ecf-12d-ba70
+Z1 o-quiet -auto_acc_if_foreign -work work
+n@_opt
+Z2 OL;O;10.4;61
+R0
+T_opt1
+!s110 1779422023
+Vk=mz2CiW<0B6<gKG`OhIU3
+04 12 4 work sequencer_tb fast 0
+=1-d85ed3518368-6a0fd347-a4-4ba4
+R1
+n@_opt1
+R2
+vact_line_ram
+Z3 !s110 1778901831
+!i10b 1
+!s100 jSL:Vb6`TEL?O:7C1:UiA3
+IVSc443dzM@@5H3TA;[cVR1
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z5 w1778901651
+Z6 8version4\act_line_ram.v
+Z7 Fversion4\act_line_ram.v
+L0 32
+Z8 OL;L;10.4;61
+r1
+!s85 0
+31
+Z9 !s108 1778901831.909000
+Z10 !s107 version4\trans_wgt.v|version4\trans_act.v|version4\act_line_ram.v|
+Z11 !s90 version4\act_line_ram.v|version4\trans_act.v|version4\trans_wgt.v|
+!i113 0
+Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vdpram
+R3
+!i10b 1
+!s100 W54U[_FeZWKj:UH9F?DZV1
+IX:gHlY1kd0negd_B3@=Vb0
+R4
+R0
+R5
+R6
+R7
+L0 3
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+vSequencer
+Z13 !s110 1779421998
+!i10b 1
+!s100 9[Hmm^cGa[E`aSFFZJFUH3
+I;b[6RY1WI[LEom_zYhZKE3
+R4
+R0
+w1779421974
+8.\version4\Sequencer.v
+F.\version4\Sequencer.v
+L0 11
+R8
+r1
+!s85 0
+31
+Z14 !s108 1779421998.068000
+Z15 !s107 .\version4\sequencer_tb.v|.\version4\Sequencer.v|
+Z16 !s90 .\version4\Sequencer.v|.\version4\sequencer_tb.v|
+!i113 0
+R12
+n@sequencer
+vsequencer_tb
+R13
+!i10b 1
+!s100 CjJPoj4GRc[CV[afjJc^a0
+IGSSHSTL1ZSP6_`<=WHY6=3
+R4
+R0
+w1779417309
+8.\version4\sequencer_tb.v
+F.\version4\sequencer_tb.v
+L0 3
+R8
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 0
+R12
+vtrans_act
+Z17 !s110 1779011268
+!i10b 1
+!s100 5PTP5=hXE=29aF?hLVJ:U1
+If:n_Oc_9g5L:8SGUOTSCa1
+R4
+R0
+w1779011257
+8version3_0\trans_act.v
+Fversion3_0\trans_act.v
+L0 3
+R8
+r1
+!s85 0
+31
+Z18 !s108 1779011268.005000
+Z19 !s107 version3_0\trans_act_tb.v|version3_0\trans_act.v|
+Z20 !s90 version3_0\trans_act.v|version3_0\trans_act_tb.v|
+!i113 0
+R12
+vtrans_act_tb
+R17
+!i10b 1
+!s100 :KX_UB?Uba<j5b`<eHZC11
+I3P]Eh8K;okP>kb=iaeMKe0
+R4
+R0
+w1779010267
+8version3_0\trans_act_tb.v
+Fversion3_0\trans_act_tb.v
+L0 3
+R8
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 0
+R12
+vtrans_wgt
+!s110 1778902559
+!i10b 1
+!s100 Y044[GnR7>_aiXYC?HO_c0
+IXW=X0:4JA_TChRI@lf7O[3
+R4
+R0
+R5
+8version4\trans_wgt.v
+Fversion4\trans_wgt.v
+L0 3
+R8
+r1
+!s85 0
+31
+!s108 1778902559.526000
+!s107 version4\trans_wgt.v|version4\trans_act.v|
+!s90 version4\trans_act.v|version4\trans_wgt.v|
+!i113 0
+R12

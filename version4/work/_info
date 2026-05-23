@@ -1,0 +1,59 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ly/Desktop/test_cnn/version4
+T_opt
+!s110 1779258312
+V7LhMRnDz;Q`M_7@P?gSTZ1
+04 12 4 work sequencer_tb fast 0
+=1-d85ed3518368-6a0d53c5-30c-93c8
+o-quiet -auto_acc_if_foreign -work work
+n@_opt
+OL;O;10.4;61
+vSequencer
+Z1 !s110 1779258243
+!i10b 1
+!s100 IX[>h2[6G<WVNonl9GMB72
+IIzEc>Nkee`1imKhBjL`Ei3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1779258224
+8Sequencer.v
+FSequencer.v
+L0 11
+Z3 OL;L;10.4;61
+r1
+!s85 0
+31
+Z4 !s108 1779258243.172000
+Z5 !s107 sequencer_tb.v|Sequencer.v|
+Z6 !s90 Sequencer.v|sequencer_tb.v|
+!i113 0
+Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@sequencer
+vsequencer_tb
+R1
+!i10b 1
+!s100 >VX:CS==JkQ?7ZIYco]TQ3
+IPUHP3QN]R=?fihA2QQ<M`3
+R2
+R0
+w1779191006
+8sequencer_tb.v
+Fsequencer_tb.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 0
+R7

@@ -6,10 +6,11 @@ module trans_act_tb;
     localparam M_SIZE = 8;
     localparam K_SIZE = 8;
     localparam OUT_CYCLES = 19;
+    localparam MAX_CYCLES = 200;
 
     reg clk;
     reg rst_n;
-    reg restart;
+    reg clear;
 
     reg [4*DATA_W-1:0] in_data;
     reg in_data_valid;
@@ -24,6 +25,7 @@ module trans_act_tb;
     integer out_count;
     integer errors;
     integer lane;
+    integer sim_cycle;
 
     reg signed [DATA_W-1:0] got;
     reg signed [DATA_W-1:0] exp;
@@ -35,7 +37,8 @@ module trans_act_tb;
     ) dut (
         .clk(clk),
         .rst_n(rst_n),
-        .restart(restart),
+        .hold(1'b0),
+        .clear(clear),
         .m_size(16'd8),
         .k_size(16'd8),
         .in_data(in_data),
@@ -91,27 +94,29 @@ module trans_act_tb;
     initial begin
         clk = 1'b0;
         rst_n = 1'b0;
-        restart = 1'b0;
+        clear = 1'b0;
         in_data_valid = 1'b0;
         in_data = 0;
         out_data_ready = 1'b1;
         feed_next = 0;
         out_count = 0;
         errors = 0;
+        sim_cycle = 0;
 
         repeat (3) @(negedge clk);
         rst_n = 1'b1;
 
         @(posedge clk);
-        restart = 1'b1;
+        clear = 1'b1;
         @(posedge clk);
-        restart = 1'b0;
+        clear = 1'b0;
         in_data_valid = 1'b1;
         drive_input();
 
-        while (!done) begin
+        while (!done && (sim_cycle < MAX_CYCLES)) begin
             @(posedge clk);
             #1;
+            sim_cycle = sim_cycle + 1;
 
             if (in_data_valid && in_data_ready) begin
                 feed_next = feed_next + 4;
@@ -144,6 +149,14 @@ module trans_act_tb;
                 end
                 out_count = out_count + 1;
             end
+        end
+
+        if (!done) begin
+            $display("ERROR timeout after %0d cycles", sim_cycle);
+            $display("state=%0d load_m=%0d load_k=%0d out_cycle=%0d out_valid=%0d out_count=%0d",
+                     dut.state, dut.load_m, dut.load_k, dut.out_cycle,
+                     out_data_valid, out_count);
+            errors = errors + 1;
         end
 
         if (out_count != OUT_CYCLES) begin

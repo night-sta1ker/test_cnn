@@ -45,15 +45,16 @@ n@_opt3
 R3
 R0
 T_opt4
-!s110 1778840930
-VI?k]cEW>]nPUbM7V7miHb1
-04 18 4 work sequencer_align_tb fast 0
-=1-d85ed3518368-6a06f562-23b-84c
+!s110 1778900753
+VX<BP1CXg9@X?5OoLY@@KN0
+04 12 4 work trans_act_tb fast 0
+=1-d85ed3518368-6a07df11-192-2750
 R2
 n@_opt4
 R3
+R0
 vact_line_ram
-Z4 !s110 1778840929
+Z4 !s110 1778901066
 !i10b 1
 !s100 jSL:Vb6`TEL?O:7C1:UiA3
 I=R<P7M7;zg5AKGR>8z7Ni1
@@ -67,13 +68,13 @@ Z9 OL;L;10.4;61
 r1
 !s85 0
 31
-Z10 !s108 1778840929.063000
-Z11 !s107 sequencer_align_tb.v|Sequencer.v|trans_wgt.v|trans_act.v|act_line_ram.v|
-Z12 !s90 act_line_ram.v|trans_act.v|trans_wgt.v|Sequencer.v|sequencer_align_tb.v|
+Z10 !s108 1778901066.811000
+Z11 !s107 trans_act_tb.v|trans_act.v|act_line_ram.v|
+Z12 !s90 act_line_ram.v|trans_act.v|trans_act_tb.v|
 !i113 0
 Z13 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 varray_tb
-Z14 !s110 1778681289
+Z14 !s110 1778856542
 !i10b 1
 !s100 iSQ9B]UW8^=TTkNC_cTCP0
 IIn8iE@7nIRjgcRcO?Mol^1
@@ -87,9 +88,9 @@ R9
 r1
 !s85 0
 31
-Z18 !s108 1778681289.281000
-Z19 !s107 array_tb.v|SystolicPE.v|SystolicArray4x4.v|Sequencer.v|trans_wgt.v|trans_act.v|act_line_ram.v|
-Z20 !s90 act_line_ram.v|trans_act.v|trans_wgt.v|Sequencer.v|SystolicArray4x4.v|SystolicPE.v|array_tb.v|
+Z18 !s108 1778856542.227000
+Z19 !s107 trans_wgt_tb.v|trans_wgt.v|trans_hold_tb.v|trans_act_tb.v|trans_act.v|SystolicPE.v|SystolicArray4x4.v|sequencer_tb.v|sequencer_align_tb.v|Sequencer_1.v|Sequencer.v|array_tb.v|act_line_ram.v|
+Z20 !s90 act_line_ram.v|array_tb.v|Sequencer.v|Sequencer_1.v|sequencer_align_tb.v|sequencer_tb.v|SystolicArray4x4.v|SystolicPE.v|trans_act.v|trans_act_tb.v|trans_hold_tb.v|trans_wgt.v|trans_wgt_tb.v|
 !i113 0
 R13
 varray_tb_4x9_9x4
@@ -174,13 +175,13 @@ R20
 R13
 n@matmul@case
 vSequencer
-R4
+R14
 !i10b 1
-!s100 W@Wb[A`:mEChVzY35CcbG3
-IE6[1zjWm73ZW3ia163BV01
+!s100 ;IkUDaT;z9?XI6jB?J:U00
+Iom5PGDMnMBK1C]V`4bzL^3
 R5
 R0
-w1778840921
+w1778856534
 8Sequencer.v
 FSequencer.v
 L0 3
@@ -188,14 +189,14 @@ R9
 r1
 !s85 0
 31
-R10
-R11
-R12
+R18
+R19
+R20
 !i113 0
 R13
 n@sequencer
 vSequencer_1
-!s110 1778589270
+R14
 !i10b 1
 !s100 7=_3ohcZTJH27Kc6iUP]a0
 I[j?7Udz;1JR0ZYM3[loIo3
@@ -209,40 +210,40 @@ R9
 r1
 !s85 0
 31
-!s108 1778589270.047000
-!s107 Sequencer_1.v|
-!s90 Sequencer_1.v|
+R18
+R19
+R20
 !i113 0
 R13
 n@sequencer_1
 vsequencer_align_tb
-R4
+R14
 !i10b 1
-!s100 P;5;oU24FzKlnVX4<9nIG2
-IK6<cWG_QQnJJ?>L8MnXGn2
+!s100 =30cc36Ob@loSjVgB>I1_2
+IOhB]Ug9YeJ`hPJY7d9MG>1
 R5
 R0
-Z25 w1778838312
+Z25 w1778855937
 Z26 8sequencer_align_tb.v
 Z27 Fsequencer_align_tb.v
-L0 358
+L0 384
 R9
 r1
 !s85 0
 31
-R10
-R11
-R12
+R18
+R19
+R20
 !i113 0
 R13
 vsequencer_tb
-!s110 1778830301
+R14
 !i10b 1
-!s100 0m1z[B`j`zocc?SlgZMFz2
-I=7PA[1heTzWJF^JiKN]Z:1
+!s100 1mRWHK3;c9J?HM4eSlQ=12
+I;8:2hYz@C6[N63;?z:dHg1
 R5
 R0
-w1778681777
+Z28 w1778854674
 8sequencer_tb.v
 Fsequencer_tb.v
 L0 3
@@ -250,16 +251,16 @@ R9
 r1
 !s85 0
 31
-!s108 1778830301.863000
-!s107 sequencer_tb.v|Sequencer.v|trans_wgt.v|trans_act.v|act_line_ram.v|
-!s90 act_line_ram.v|trans_act.v|trans_wgt.v|Sequencer.v|sequencer_tb.v|
+R18
+R19
+R20
 !i113 0
 R13
 vSequencerAlignCase
-R4
+R14
 !i10b 1
-!s100 zLG6U:_MFWh2ldcF4AX=o2
-IU<G;0Q11SGRiFHd`[YalE2
+!s100 Q;PXBY8k]_FYJUHz`X0Aj2
+IRfa`BiGKF0I88H51ddnEa1
 R5
 R0
 R25
@@ -270,9 +271,9 @@ R9
 r1
 !s85 0
 31
-R10
-R11
-R12
+R18
+R19
+R20
 !i113 0
 R13
 n@sequencer@align@case
@@ -292,8 +293,8 @@ r1
 !s85 0
 31
 !s108 1778677751.914000
-Z28 !s107 trans_act_tb.v|trans_act.v|act_line_ram.v|
-Z29 !s90 act_line_ram.v|trans_act.v|trans_act_tb.v|
+R11
+R12
 !i113 0
 R13
 vSystolicArray4x4
@@ -341,11 +342,11 @@ n@systolic@p@e
 vtrans_act
 R4
 !i10b 1
-!s100 =A[4Qn[[Cc[?z8gGSa9=b2
-Id1ID8?edg4_DRchTREaP;2
+!s100 3EciK25?::30iFEmV08K=2
+I7Y6]cFKP3E0jb`4_BEF_D3
 R5
 R0
-w1778831493
+w1778900712
 8trans_act.v
 Ftrans_act.v
 L0 3
@@ -359,35 +360,15 @@ R12
 !i113 0
 R13
 vtrans_act_tb
-!s110 1778831395
-!i10b 1
-!s100 W?cm:;_A6[?[Vg4iH[bHX3
-Im0[=28EW`;@`^hHSLm<kz0
-R5
-R0
-w1778831356
-8trans_act_tb.v
-Ftrans_act_tb.v
-L0 3
-R9
-r1
-!s85 0
-31
-!s108 1778831394.486000
-R28
-R29
-!i113 0
-R13
-vtrans_wgt
 R4
 !i10b 1
-!s100 O_N4W4a[I=k1MY?gQHJDN0
-Ial3n[`aG5[iUCH^_mEdTJ0
+!s100 ]FUNamLl9?I]L4kc>9f?i2
+ISeEeDX`fk15=U@C@PEC>20
 R5
 R0
-w1778840894
-8trans_wgt.v
-Ftrans_wgt.v
+w1778901058
+8trans_act_tb.v
+Ftrans_act_tb.v
 L0 3
 R9
 r1
@@ -398,14 +379,54 @@ R11
 R12
 !i113 0
 R13
-vtrans_wgt_tb
-!s110 1778830071
+vtrans_hold_tb
+R14
 !i10b 1
-!s100 VGQe?jGfh<i?lGHjgfIm<1
-IkN=G@Y]LO>;^DeTMeQTIV0
+!s100 SR=^e5=6=i=8;_?OH<ELP1
+IDC:WK?Ql`T3Xl2HHgz=X?1
 R5
 R0
-w1778829990
+w1778855249
+8trans_hold_tb.v
+Ftrans_hold_tb.v
+L0 3
+R9
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 0
+R13
+vtrans_wgt
+R14
+!i10b 1
+!s100 h?^GLLSNYgJkC7Wha3e[F1
+IVjiB469GQ:i?KVbm<hiZC2
+R5
+R0
+w1778856503
+8trans_wgt.v
+Ftrans_wgt.v
+L0 3
+R9
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 0
+R13
+vtrans_wgt_tb
+R14
+!i10b 1
+!s100 ?QeLHc6[M`6lZoJD0R;>F1
+Ikoknzk<V85gPD`cG<IeZL3
+R5
+R0
+R28
 8trans_wgt_tb.v
 Ftrans_wgt_tb.v
 L0 3
@@ -413,8 +434,8 @@ R9
 r1
 !s85 0
 31
-!s108 1778830071.361000
-!s107 trans_wgt_tb.v|trans_wgt.v|
-!s90 trans_wgt.v|trans_wgt_tb.v|
+R18
+R19
+R20
 !i113 0
 R13
