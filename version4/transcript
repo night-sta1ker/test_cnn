@@ -1,5 +1,5 @@
 # vsim -c sequencer_tb -l .\version4\transcript -do "run -all; quit" 
-# Start time: 11:53:42 on May 22,2026
+# Start time: 23:08:11 on May 28,2026
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # 
 # //  ModelSim SE-64 10.4 Dec  3 2014 
@@ -18,154 +18,306 @@
 # //
 # Loading work.sequencer_tb(fast)
 # run -all
-# BEGIN: case=1 A=5x6 B=6x8
-# A matrix:
-#   1 2 3 4 5 6 
-#   7 8 9 10 11 12 
-#   13 14 15 16 17 18 
-#   19 20 21 22 23 24 
-#   25 26 27 28 29 30 
-# B matrix:
-#   1 2 3 4 5 6 7 8 
-#   9 10 11 12 13 14 15 16 
-#   17 18 19 20 21 22 23 24 
-#   25 26 27 28 29 30 31 32 
-#   33 34 35 36 37 38 39 40 
-#   41 42 43 44 45 46 47 48 
-# case=1 cycle=2 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=0/1 base=1:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/1 base=1:200 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0001 | en=0
-# case=1 cycle=3 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=1/0 base=0:100 stream=1,7,13,19 act_in=0,0,0,0 | wgt v/r=1/1 base=0:200 stream=1,2,3,4 wgt_in=0,0,0,0 ld=0010 | en=0
-# case=1 cycle=4 state=1 hold=0 ag=0 wg=0 ak=0 wk=1 am=0 adone=0 wdone=0 all=0 aout=0 wout=1 | act v/r=1/1 base=0:100 stream=1,7,13,19 act_in=0,0,0,0 | wgt v/r=1/1 base=0:200 stream=9,10,11,12 wgt_in=0,0,0,0 ld=0100 | en=0
-# case=1 cycle=5 state=1 hold=0 ag=0 wg=0 ak=1 wk=2 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=2,8,14,20 act_in=0,0,0,0 | wgt v/r=1/1 base=0:200 stream=17,18,19,20 wgt_in=1,0,0,0 ld=1000 | en=1
-# case=1 cycle=6 state=1 hold=0 ag=0 wg=0 ak=2 wk=3 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=3,9,15,21 act_in=1,0,0,0 | wgt v/r=1/1 base=0:200 stream=25,26,27,28 wgt_in=9,2,0,0 ld=0001 | en=1
-# case=1 cycle=7 state=1 hold=0 ag=0 wg=0 ak=3 wk=4 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=4,10,16,22 act_in=7,2,0,0 | wgt v/r=1/1 base=0:200 stream=33,34,35,36 wgt_in=17,10,3,0 ld=0010 | en=1
-# case=1 cycle=8 state=1 hold=0 ag=0 wg=0 ak=4 wk=5 am=0 adone=0 wdone=1 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=5,11,17,23 act_in=13,8,3,0 | wgt v/r=1/1 base=0:200 stream=41,42,43,44 wgt_in=25,18,11,4 ld=0100 | en=1
-# case=1 cycle=9 state=1 hold=1 ag=0 wg=1 ak=5 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/0 base=0:100 stream=6,12,18,24 act_in=19,14,9,4 | wgt v/r=0/0 base=1:200 stream=0,0,0,0 wgt_in=33,26,19,12 ld=1000 | en=0
-# case=1 cycle=10 state=1 hold=0 ag=0 wg=1 ak=5 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=6,12,18,24 act_in=19,14,9,4 | wgt v/r=1/1 base=0:200 stream=1,2,3,4 wgt_in=33,26,19,12 ld=1000 | en=1
-# case=1 cycle=11 state=1 hold=0 ag=0 wg=1 ak=0 wk=1 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=25,0,0,0 act_in=5,20,15,10 | wgt v/r=1/1 base=0:200 stream=9,10,11,12 wgt_in=41,34,27,20 ld=0001 | en=1
-# case=1 cycle=12 state=1 hold=0 ag=0 wg=1 ak=1 wk=2 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=26,0,0,0 act_in=11,6,21,16 | wgt v/r=1/1 base=0:200 stream=17,18,19,20 wgt_in=1,42,35,28 ld=0010 | en=1
-# case=1 cycle=13 state=1 hold=0 ag=0 wg=1 ak=2 wk=3 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=27,0,0,0 act_in=17,12,25,22 | wgt v/r=1/1 base=0:200 stream=25,26,27,28 wgt_in=9,2,43,36 ld=0100 | en=1
-# case=1 cycle=14 state=1 hold=0 ag=0 wg=1 ak=3 wk=4 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=28,0,0,0 act_in=23,18,0,26 | wgt v/r=1/1 base=0:200 stream=33,34,35,36 wgt_in=17,10,3,44 ld=1000 | en=1
-# case=1 cycle=15 state=1 hold=0 ag=0 wg=1 ak=4 wk=5 am=1 adone=0 wdone=1 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=29,0,0,0 act_in=27,24,0,0 | wgt v/r=1/1 base=0:200 stream=41,42,43,44 wgt_in=25,18,11,4 ld=0001 | en=1
-# case=1 cycle=16 state=1 hold=0 ag=0 wg=0 ak=5 wk=0 am=1 adone=1 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=30,0,0,0 act_in=0,28,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=33,26,19,12 ld=0010 | en=1
-# case=1 cycle=17 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,29,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=41,34,27,20 ld=0100 | en=1
-# case=1 cycle=18 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,30 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,42,35,28 ld=1000 | en=1
-# case=1 cycle=19 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,0,43,36 ld=0001 | en=1
-# case=1 cycle=20 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,0,0,44 ld=0010 | en=1
-# case=1 cycle=21 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0100 | en=1
-# case=1 cycle=23 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=0/0 base=1:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=1:206 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0001 | en=0
-# case=1 cycle=24 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=1/0 base=0:100 stream=1,7,13,19 act_in=0,0,0,0 | wgt v/r=1/1 base=0:206 stream=5,6,7,8 wgt_in=0,0,0,0 ld=0010 | en=0
-# case=1 cycle=25 state=1 hold=0 ag=1 wg=0 ak=0 wk=1 am=0 adone=0 wdone=0 all=0 aout=0 wout=1 | act v/r=1/1 base=0:100 stream=1,7,13,19 act_in=0,0,0,0 | wgt v/r=1/1 base=0:206 stream=13,14,15,16 wgt_in=0,0,0,0 ld=0100 | en=0
-# case=1 cycle=26 state=1 hold=0 ag=1 wg=0 ak=1 wk=2 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=2,8,14,20 act_in=0,0,0,0 | wgt v/r=1/1 base=0:206 stream=21,22,23,24 wgt_in=5,0,0,0 ld=1000 | en=1
-# case=1 cycle=27 state=1 hold=0 ag=1 wg=0 ak=2 wk=3 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=3,9,15,21 act_in=1,0,0,0 | wgt v/r=1/1 base=0:206 stream=29,30,31,32 wgt_in=13,6,0,0 ld=0001 | en=1
-# case=1 cycle=28 state=1 hold=0 ag=1 wg=0 ak=3 wk=4 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=4,10,16,22 act_in=7,2,0,0 | wgt v/r=1/1 base=0:206 stream=37,38,39,40 wgt_in=21,14,7,0 ld=0010 | en=1
-# case=1 cycle=29 state=1 hold=0 ag=1 wg=0 ak=4 wk=5 am=0 adone=0 wdone=1 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=5,11,17,23 act_in=13,8,3,0 | wgt v/r=1/1 base=0:206 stream=45,46,47,48 wgt_in=29,22,15,8 ld=0100 | en=1
-# case=1 cycle=30 state=1 hold=1 ag=1 wg=1 ak=5 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/0 base=0:100 stream=6,12,18,24 act_in=19,14,9,4 | wgt v/r=0/0 base=1:206 stream=0,0,0,0 wgt_in=37,30,23,16 ld=1000 | en=0
-# case=1 cycle=31 state=1 hold=0 ag=1 wg=1 ak=5 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=6,12,18,24 act_in=19,14,9,4 | wgt v/r=1/1 base=0:206 stream=5,6,7,8 wgt_in=37,30,23,16 ld=1000 | en=1
-# case=1 cycle=32 state=1 hold=0 ag=1 wg=1 ak=0 wk=1 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=25,0,0,0 act_in=5,20,15,10 | wgt v/r=1/1 base=0:206 stream=13,14,15,16 wgt_in=45,38,31,24 ld=0001 | en=1
-# case=1 cycle=33 state=1 hold=0 ag=1 wg=1 ak=1 wk=2 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=26,0,0,0 act_in=11,6,21,16 | wgt v/r=1/1 base=0:206 stream=21,22,23,24 wgt_in=5,46,39,32 ld=0010 | en=1
-# case=1 cycle=34 state=1 hold=0 ag=1 wg=1 ak=2 wk=3 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=27,0,0,0 act_in=17,12,25,22 | wgt v/r=1/1 base=0:206 stream=29,30,31,32 wgt_in=13,6,47,40 ld=0100 | en=1
-# case=1 cycle=35 state=1 hold=0 ag=1 wg=1 ak=3 wk=4 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=28,0,0,0 act_in=23,18,0,26 | wgt v/r=1/1 base=0:206 stream=37,38,39,40 wgt_in=21,14,7,48 ld=1000 | en=1
-# case=1 cycle=36 state=1 hold=0 ag=1 wg=1 ak=4 wk=5 am=1 adone=0 wdone=1 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=29,0,0,0 act_in=27,24,0,0 | wgt v/r=1/1 base=0:206 stream=45,46,47,48 wgt_in=29,22,15,8 ld=0001 | en=1
-# case=1 cycle=37 state=1 hold=0 ag=1 wg=0 ak=5 wk=0 am=1 adone=1 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=30,0,0,0 act_in=0,28,0,0 | wgt v/r=0/0 base=0:206 stream=0,0,0,0 wgt_in=37,30,23,16 ld=0010 | en=1
-# case=1 cycle=38 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,29,0 | wgt v/r=0/0 base=0:206 stream=0,0,0,0 wgt_in=45,38,31,24 ld=0100 | en=1
-# case=1 cycle=39 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,30 | wgt v/r=0/0 base=0:206 stream=0,0,0,0 wgt_in=0,46,39,32 ld=1000 | en=1
-# case=1 cycle=40 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=0:206 stream=0,0,0,0 wgt_in=0,0,47,40 ld=0001 | en=1
-# case=1 cycle=41 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=0:206 stream=0,0,0,0 wgt_in=0,0,0,48 ld=0010 | en=1
-# case=1 cycle=42 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=0:206 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0100 | en=1
-# DONE: case=1 reached S_DONE at cycle=44
-# BEGIN: case=2 A=2x3 B=3x2
-# A matrix:
-#   1 2 3 
-#   4 5 6 
-# B matrix:
-#   1 2 
-#   3 4 
-#   5 6 
-# case=2 cycle=2 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=0/1 base=1:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/1 base=1:200 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0001 | en=0
-# case=2 cycle=3 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=1/0 base=0:100 stream=1,4,0,0 act_in=0,0,0,0 | wgt v/r=1/1 base=0:200 stream=1,2,0,0 wgt_in=0,0,0,0 ld=0010 | en=0
-# case=2 cycle=4 state=1 hold=0 ag=0 wg=0 ak=0 wk=1 am=0 adone=0 wdone=0 all=0 aout=0 wout=1 | act v/r=1/1 base=0:100 stream=1,4,0,0 act_in=0,0,0,0 | wgt v/r=1/1 base=0:200 stream=3,4,0,0 wgt_in=0,0,0,0 ld=0100 | en=0
-# case=2 cycle=5 state=1 hold=0 ag=0 wg=0 ak=1 wk=2 am=0 adone=0 wdone=1 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=2,5,0,0 act_in=0,0,0,0 | wgt v/r=1/1 base=0:200 stream=5,6,0,0 wgt_in=1,0,0,0 ld=1000 | en=1
-# case=2 cycle=6 state=1 hold=0 ag=0 wg=0 ak=2 wk=0 am=0 adone=1 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=3,6,0,0 act_in=1,0,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=3,2,0,0 ld=0001 | en=1
-# case=2 cycle=7 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=4,2,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=5,4,0,0 ld=0010 | en=1
-# case=2 cycle=8 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,5,3,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,6,0,0 ld=0100 | en=1
-# case=2 cycle=9 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,6,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,0,0,0 ld=1000 | en=1
-# case=2 cycle=10 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0001 | en=1
-# case=2 cycle=11 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0010 | en=1
+# BEGIN: case=1 A=5x6 B=6x8 wgt_scale=1
+# PSUM case=1 cycle=2 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=1 cycle=3 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=1 cycle=4 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=1 cycle=5 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=1 cycle=6 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=1 cycle=7 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={1,0,0,0}
+# PSUM case=1 cycle=8 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={7,2,0,0}
+# PSUM case=1 cycle=9 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=1 cycle=10 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=1 cycle=11 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=1 cycle=12 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={19,26,21,4}
+# PSUM case=1 cycle=13 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={335,38,39,28}
+# PSUM case=1 cycle=14 array_en=1 psum_zero=0108 psum_sel=0 psum_out(c0,c1,c2,c3)={845,350,57,52}
+# PSUM case=1 cycle=15 array_en=1 psum_zero=0300 psum_sel=0 psum_out(c0,c1,c2,c3)={1355,890,365,76}
+# PSUM case=1 cycle=16 array_en=1 psum_zero=0700 psum_sel=0 psum_out(c0,c1,c2,c3)={1865,1430,935,380}
+# PSUM case=1 cycle=17 array_en=1 psum_zero=0f00 psum_sel=0 psum_out(c0,c1,c2,c3)={718,1970,1505,980}
+# PSUM case=1 cycle=18 array_en=1 psum_zero=0e00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,796,2075,1580}
+# PSUM case=1 cycle=19 array_en=1 psum_zero=0c00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,874,2180}
+# PSUM case=1 cycle=20 array_en=1 psum_zero=0800 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,952}
+# PSUM case=1 cycle=21 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={3605,0,0,0}
+# PSUM case=1 cycle=22 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,3770,0,0}
+# PSUM case=1 cycle=23 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=1 cycle=24 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=1 cycle=25 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=1 cycle=26 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=1 cycle=27 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=1 cycle=28 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,4100}
+# PSUM case=1 cycle=29 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={5,0,0,0}
+# PSUM case=1 cycle=30 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={35,6,0,0}
+# PSUM case=1 cycle=31 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=1 cycle=32 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=1 cycle=33 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=1 cycle=34 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={95,78,49,8}
+# PSUM case=1 cycle=35 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={395,114,91,56}
+# PSUM case=1 cycle=36 array_en=1 psum_zero=0108 psum_sel=0 psum_out(c0,c1,c2,c3)={1025,410,133,104}
+# PSUM case=1 cycle=37 array_en=1 psum_zero=0300 psum_sel=0 psum_out(c0,c1,c2,c3)={1655,1070,425,152}
+# PSUM case=1 cycle=38 array_en=1 psum_zero=0700 psum_sel=0 psum_out(c0,c1,c2,c3)={2285,1730,1115,440}
+# PSUM case=1 cycle=39 array_en=1 psum_zero=0f00 psum_sel=0 psum_out(c0,c1,c2,c3)={1030,2390,1805,1160}
+# PSUM case=1 cycle=40 array_en=1 psum_zero=0e00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,1108,2495,1880}
+# PSUM case=1 cycle=41 array_en=1 psum_zero=0c00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,1186,2600}
+# PSUM case=1 cycle=42 array_en=1 psum_zero=0800 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,1264}
+# PSUM case=1 cycle=43 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={4265,0,0,0}
+# PSUM case=1 cycle=44 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,4430,0,0}
+# PSUM case=1 cycle=45 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# DONE: case=1 reached S_DONE at cycle=46
+# PSUM case=1 cycle=46 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# BEGIN: case=2 A=2x3 B=3x2 wgt_scale=1
+# PSUM case=2 cycle=2 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=2 cycle=3 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=2 cycle=4 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=2 cycle=5 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=2 cycle=6 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=2 cycle=7 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={1,0,0,0}
+# PSUM case=2 cycle=8 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={4,2,0,0}
+# PSUM case=2 cycle=9 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={0,8,0,0}
+# PSUM case=2 cycle=10 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=2 cycle=11 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={22,0,0,0}
+# PSUM case=2 cycle=12 array_en=0 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={49,28,0,0}
 # DONE: case=2 reached S_DONE at cycle=13
-# BEGIN: case=3 A=8x9 B=9x6
-# A matrix:
-#   1 2 3 4 5 6 7 8 9 
-#   10 11 12 13 14 15 16 17 18 
-#   19 20 21 22 23 24 25 26 27 
-#   28 29 30 31 32 33 34 35 36 
-#   37 38 39 40 41 42 43 44 45 
-#   46 47 48 49 50 51 52 53 54 
-#   55 56 57 58 59 60 61 62 63 
-#   64 65 66 67 68 69 70 71 72 
-# B matrix:
-#   1 2 3 4 5 6 
-#   7 8 9 10 11 12 
-#   13 14 15 16 17 18 
-#   19 20 21 22 23 24 
-#   25 26 27 28 29 30 
-#   31 32 33 34 35 36 
-#   37 38 39 40 41 42 
-#   43 44 45 46 47 48 
-#   49 50 51 52 53 54 
-# case=3 cycle=2 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=0/1 base=1:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/1 base=1:200 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0001 | en=0
-# case=3 cycle=3 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=1/0 base=0:100 stream=1,10,19,28 act_in=0,0,0,0 | wgt v/r=1/1 base=0:200 stream=1,2,3,4 wgt_in=0,0,0,0 ld=0010 | en=0
-# case=3 cycle=4 state=1 hold=0 ag=0 wg=0 ak=0 wk=1 am=0 adone=0 wdone=0 all=0 aout=0 wout=1 | act v/r=1/1 base=0:100 stream=1,10,19,28 act_in=0,0,0,0 | wgt v/r=1/1 base=0:200 stream=7,8,9,10 wgt_in=0,0,0,0 ld=0100 | en=0
-# case=3 cycle=5 state=1 hold=0 ag=0 wg=0 ak=1 wk=2 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=2,11,20,29 act_in=0,0,0,0 | wgt v/r=1/1 base=0:200 stream=13,14,15,16 wgt_in=1,0,0,0 ld=1000 | en=1
-# case=3 cycle=6 state=1 hold=0 ag=0 wg=0 ak=2 wk=3 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=3,12,21,30 act_in=1,0,0,0 | wgt v/r=1/1 base=0:200 stream=19,20,21,22 wgt_in=7,2,0,0 ld=0001 | en=1
-# case=3 cycle=7 state=1 hold=0 ag=0 wg=0 ak=3 wk=4 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=4,13,22,31 act_in=10,2,0,0 | wgt v/r=1/1 base=0:200 stream=25,26,27,28 wgt_in=13,8,3,0 ld=0010 | en=1
-# case=3 cycle=8 state=1 hold=0 ag=0 wg=0 ak=4 wk=5 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=5,14,23,32 act_in=19,11,3,0 | wgt v/r=1/1 base=0:200 stream=31,32,33,34 wgt_in=19,14,9,4 ld=0100 | en=1
-# case=3 cycle=9 state=1 hold=0 ag=0 wg=0 ak=5 wk=6 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=6,15,24,33 act_in=28,20,12,4 | wgt v/r=1/1 base=0:200 stream=37,38,39,40 wgt_in=25,20,15,10 ld=1000 | en=1
-# case=3 cycle=10 state=1 hold=0 ag=0 wg=0 ak=6 wk=7 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=7,16,25,34 act_in=5,29,21,13 | wgt v/r=1/1 base=0:200 stream=43,44,45,46 wgt_in=31,26,21,16 ld=0001 | en=1
-# case=3 cycle=11 state=1 hold=0 ag=0 wg=0 ak=7 wk=8 am=0 adone=0 wdone=1 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=8,17,26,35 act_in=14,6,30,22 | wgt v/r=1/1 base=0:200 stream=49,50,51,52 wgt_in=37,32,27,22 ld=0010 | en=1
-# case=3 cycle=12 state=1 hold=1 ag=0 wg=1 ak=8 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/0 base=0:100 stream=9,18,27,36 act_in=23,15,7,31 | wgt v/r=0/0 base=1:200 stream=0,0,0,0 wgt_in=43,38,33,28 ld=0100 | en=0
-# case=3 cycle=13 state=1 hold=0 ag=0 wg=1 ak=8 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=9,18,27,36 act_in=23,15,7,31 | wgt v/r=1/1 base=0:200 stream=1,2,3,4 wgt_in=43,38,33,28 ld=0100 | en=1
-# case=3 cycle=14 state=1 hold=0 ag=0 wg=1 ak=0 wk=1 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=37,46,55,64 act_in=32,24,16,8 | wgt v/r=1/1 base=0:200 stream=7,8,9,10 wgt_in=49,44,39,34 ld=1000 | en=1
-# case=3 cycle=15 state=1 hold=0 ag=0 wg=1 ak=1 wk=2 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=38,47,56,65 act_in=9,33,25,17 | wgt v/r=1/1 base=0:200 stream=13,14,15,16 wgt_in=1,50,45,40 ld=0001 | en=1
-# case=3 cycle=16 state=1 hold=0 ag=0 wg=1 ak=2 wk=3 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=39,48,57,66 act_in=18,37,34,26 | wgt v/r=1/1 base=0:200 stream=19,20,21,22 wgt_in=7,2,51,46 ld=0010 | en=1
-# case=3 cycle=17 state=1 hold=0 ag=0 wg=1 ak=3 wk=4 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=40,49,58,67 act_in=27,46,38,35 | wgt v/r=1/1 base=0:200 stream=25,26,27,28 wgt_in=13,8,3,52 ld=0100 | en=1
-# case=3 cycle=18 state=1 hold=0 ag=0 wg=1 ak=4 wk=5 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=41,50,59,68 act_in=36,55,47,39 | wgt v/r=1/1 base=0:200 stream=31,32,33,34 wgt_in=19,14,9,4 ld=1000 | en=1
-# case=3 cycle=19 state=1 hold=0 ag=0 wg=1 ak=5 wk=6 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=42,51,60,69 act_in=40,64,56,48 | wgt v/r=1/1 base=0:200 stream=37,38,39,40 wgt_in=25,20,15,10 ld=0001 | en=1
-# case=3 cycle=20 state=1 hold=0 ag=0 wg=1 ak=6 wk=7 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=43,52,61,70 act_in=49,41,65,57 | wgt v/r=1/1 base=0:200 stream=43,44,45,46 wgt_in=31,26,21,16 ld=0010 | en=1
-# case=3 cycle=21 state=1 hold=0 ag=0 wg=1 ak=7 wk=8 am=1 adone=0 wdone=1 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=44,53,62,71 act_in=58,50,42,66 | wgt v/r=1/1 base=0:200 stream=49,50,51,52 wgt_in=37,32,27,22 ld=0100 | en=1
-# case=3 cycle=22 state=1 hold=0 ag=0 wg=0 ak=8 wk=0 am=1 adone=1 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=45,54,63,72 act_in=67,59,51,43 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=43,38,33,28 ld=1000 | en=1
-# case=3 cycle=23 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=44,68,60,52 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=49,44,39,34 ld=0001 | en=1
-# case=3 cycle=24 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=53,45,69,61 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,50,45,40 ld=0010 | en=1
-# case=3 cycle=25 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=62,54,0,70 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,0,51,46 ld=0100 | en=1
-# case=3 cycle=26 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=71,63,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,0,0,52 ld=1000 | en=1
-# case=3 cycle=27 state=1 hold=0 ag=0 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,72,0,0 | wgt v/r=0/0 base=0:200 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0001 | en=1
-# case=3 cycle=29 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=0/0 base=1:100 stream=0,0,0,0 act_in=0,0,0,0 | wgt v/r=0/0 base=1:209 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0100 | en=0
-# case=3 cycle=30 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=0 wout=0 | act v/r=1/0 base=0:100 stream=1,10,19,28 act_in=0,0,0,0 | wgt v/r=1/1 base=0:209 stream=5,6,0,0 wgt_in=0,0,0,0 ld=1000 | en=0
-# case=3 cycle=31 state=1 hold=0 ag=1 wg=0 ak=0 wk=1 am=0 adone=0 wdone=0 all=0 aout=0 wout=1 | act v/r=1/1 base=0:100 stream=1,10,19,28 act_in=0,0,0,0 | wgt v/r=1/1 base=0:209 stream=11,12,0,0 wgt_in=0,0,0,0 ld=0001 | en=0
-# case=3 cycle=32 state=1 hold=0 ag=1 wg=0 ak=1 wk=2 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=2,11,20,29 act_in=0,0,0,0 | wgt v/r=1/1 base=0:209 stream=17,18,0,0 wgt_in=5,0,0,0 ld=0010 | en=1
-# case=3 cycle=33 state=1 hold=0 ag=1 wg=0 ak=2 wk=3 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=3,12,21,30 act_in=1,0,0,0 | wgt v/r=1/1 base=0:209 stream=23,24,0,0 wgt_in=11,6,0,0 ld=0100 | en=1
-# case=3 cycle=34 state=1 hold=0 ag=1 wg=0 ak=3 wk=4 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=4,13,22,31 act_in=10,2,0,0 | wgt v/r=1/1 base=0:209 stream=29,30,0,0 wgt_in=17,12,0,0 ld=1000 | en=1
-# case=3 cycle=35 state=1 hold=0 ag=1 wg=0 ak=4 wk=5 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=5,14,23,32 act_in=19,11,3,0 | wgt v/r=1/1 base=0:209 stream=35,36,0,0 wgt_in=23,18,0,0 ld=0001 | en=1
-# case=3 cycle=36 state=1 hold=0 ag=1 wg=0 ak=5 wk=6 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=6,15,24,33 act_in=28,20,12,4 | wgt v/r=1/1 base=0:209 stream=41,42,0,0 wgt_in=29,24,0,0 ld=0010 | en=1
-# case=3 cycle=37 state=1 hold=0 ag=1 wg=0 ak=6 wk=7 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=7,16,25,34 act_in=5,29,21,13 | wgt v/r=1/1 base=0:209 stream=47,48,0,0 wgt_in=35,30,0,0 ld=0100 | en=1
-# case=3 cycle=38 state=1 hold=0 ag=1 wg=0 ak=7 wk=8 am=0 adone=0 wdone=1 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=8,17,26,35 act_in=14,6,30,22 | wgt v/r=1/1 base=0:209 stream=53,54,0,0 wgt_in=41,36,0,0 ld=1000 | en=1
-# case=3 cycle=39 state=1 hold=1 ag=1 wg=1 ak=8 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/0 base=0:100 stream=9,18,27,36 act_in=23,15,7,31 | wgt v/r=0/0 base=1:209 stream=0,0,0,0 wgt_in=47,42,0,0 ld=0001 | en=0
-# case=3 cycle=40 state=1 hold=0 ag=1 wg=1 ak=8 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=9,18,27,36 act_in=23,15,7,31 | wgt v/r=1/1 base=0:209 stream=5,6,0,0 wgt_in=47,42,0,0 ld=0001 | en=1
-# case=3 cycle=41 state=1 hold=0 ag=1 wg=1 ak=0 wk=1 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=37,46,55,64 act_in=32,24,16,8 | wgt v/r=1/1 base=0:209 stream=11,12,0,0 wgt_in=53,48,0,0 ld=0010 | en=1
-# case=3 cycle=42 state=1 hold=0 ag=1 wg=1 ak=1 wk=2 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=38,47,56,65 act_in=9,33,25,17 | wgt v/r=1/1 base=0:209 stream=17,18,0,0 wgt_in=5,54,0,0 ld=0100 | en=1
-# case=3 cycle=43 state=1 hold=0 ag=1 wg=1 ak=2 wk=3 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=39,48,57,66 act_in=18,37,34,26 | wgt v/r=1/1 base=0:209 stream=23,24,0,0 wgt_in=11,6,0,0 ld=1000 | en=1
-# case=3 cycle=44 state=1 hold=0 ag=1 wg=1 ak=3 wk=4 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=40,49,58,67 act_in=27,46,38,35 | wgt v/r=1/1 base=0:209 stream=29,30,0,0 wgt_in=17,12,0,0 ld=0001 | en=1
-# case=3 cycle=45 state=1 hold=0 ag=1 wg=1 ak=4 wk=5 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=41,50,59,68 act_in=36,55,47,39 | wgt v/r=1/1 base=0:209 stream=35,36,0,0 wgt_in=23,18,0,0 ld=0010 | en=1
-# case=3 cycle=46 state=1 hold=0 ag=1 wg=1 ak=5 wk=6 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=42,51,60,69 act_in=40,64,56,48 | wgt v/r=1/1 base=0:209 stream=41,42,0,0 wgt_in=29,24,0,0 ld=0100 | en=1
-# case=3 cycle=47 state=1 hold=0 ag=1 wg=1 ak=6 wk=7 am=1 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=43,52,61,70 act_in=49,41,65,57 | wgt v/r=1/1 base=0:209 stream=47,48,0,0 wgt_in=35,30,0,0 ld=1000 | en=1
-# case=3 cycle=48 state=1 hold=0 ag=1 wg=1 ak=7 wk=8 am=1 adone=0 wdone=1 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=44,53,62,71 act_in=58,50,42,66 | wgt v/r=1/1 base=0:209 stream=53,54,0,0 wgt_in=41,36,0,0 ld=0001 | en=1
-# case=3 cycle=49 state=1 hold=0 ag=1 wg=0 ak=8 wk=0 am=1 adone=1 wdone=0 all=0 aout=1 wout=1 | act v/r=1/1 base=0:100 stream=45,54,63,72 act_in=67,59,51,43 | wgt v/r=0/0 base=0:209 stream=0,0,0,0 wgt_in=47,42,0,0 ld=0010 | en=1
-# case=3 cycle=50 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=44,68,60,52 | wgt v/r=0/0 base=0:209 stream=0,0,0,0 wgt_in=53,48,0,0 ld=0100 | en=1
-# case=3 cycle=51 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=53,45,69,61 | wgt v/r=0/0 base=0:209 stream=0,0,0,0 wgt_in=0,54,0,0 ld=1000 | en=1
-# case=3 cycle=52 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=62,54,0,70 | wgt v/r=0/0 base=0:209 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0001 | en=1
-# case=3 cycle=53 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=71,63,0,0 | wgt v/r=0/0 base=0:209 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0010 | en=1
-# case=3 cycle=54 state=1 hold=0 ag=1 wg=0 ak=0 wk=0 am=0 adone=0 wdone=0 all=0 aout=1 wout=1 | act v/r=0/0 base=0:100 stream=0,0,0,0 act_in=0,72,0,0 | wgt v/r=0/0 base=0:209 stream=0,0,0,0 wgt_in=0,0,0,0 ld=0100 | en=1
-# DONE: case=3 reached S_DONE at cycle=56
-# ** Note: $finish    : ./version4/sequencer_tb.v(300)
-#    Time: 1370 ns  Iteration: 1  Instance: /sequencer_tb
-# End time: 11:53:44 on May 22,2026, Elapsed time: 0:00:02
+# PSUM case=2 cycle=13 array_en=0 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={49,28,0,0}
+# BEGIN: case=3 A=8x9 B=9x6 wgt_scale=1
+# PSUM case=3 cycle=2 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=3 cycle=3 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=3 cycle=4 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=3 cycle=5 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=3 cycle=6 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=3 cycle=7 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={1,0,0,0}
+# PSUM case=3 cycle=8 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={10,2,0,0}
+# PSUM case=3 cycle=9 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={19,20,3,0}
+# PSUM case=3 cycle=10 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={28,38,30,4}
+# PSUM case=3 cycle=11 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={255,56,57,40}
+# PSUM case=3 cycle=12 array_en=0 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={840,270,84,76}
+# PSUM case=3 cycle=13 array_en=0 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={840,270,84,76}
+# PSUM case=3 cycle=14 array_en=1 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={840,270,84,76}
+# PSUM case=3 cycle=15 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={1425,900,285,112}
+# PSUM case=3 cycle=16 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={2010,1530,960,300}
+# PSUM case=3 cycle=17 array_en=1 psum_zero=0010 psum_sel=0 psum_out(c0,c1,c2,c3)={1485,2160,1635,1020}
+# PSUM case=3 cycle=18 array_en=1 psum_zero=0030 psum_sel=0 psum_out(c0,c1,c2,c3)={3510,1530,2310,1740}
+# PSUM case=3 cycle=19 array_en=1 psum_zero=0070 psum_sel=0 psum_out(c0,c1,c2,c3)={5535,3636,1575,2460}
+# PSUM case=3 cycle=20 array_en=1 psum_zero=00f0 psum_sel=0 psum_out(c0,c1,c2,c3)={7560,5742,3762,1620}
+# PSUM case=3 cycle=21 array_en=1 psum_zero=00e0 psum_sel=0 psum_out(c0,c1,c2,c3)={1570,7848,5949,3888}
+# PSUM case=3 cycle=22 array_en=1 psum_zero=00c0 psum_sel=0 psum_out(c0,c1,c2,c3)={1930,1724,8136,6156}
+# PSUM case=3 cycle=23 array_en=1 psum_zero=0080 psum_sel=0 psum_out(c0,c1,c2,c3)={2290,2120,1878,8424}
+# PSUM case=3 cycle=24 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={2650,2516,2310,2032}
+# PSUM case=3 cycle=25 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={7380,2912,2742,2500}
+# PSUM case=3 cycle=26 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={8964,7704,3174,2968}
+# PSUM case=3 cycle=27 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={10548,9360,8028,3436}
+# PSUM case=3 cycle=28 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={12132,11016,9756,8352}
+# PSUM case=3 cycle=29 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={9585,12672,11484,10152}
+# PSUM case=3 cycle=30 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={9585,12672,11484,10152}
+# PSUM case=3 cycle=31 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={9585,12672,11484,10152}
+# PSUM case=3 cycle=32 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={9585,12672,11484,10152}
+# PSUM case=3 cycle=33 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={9585,12672,11484,10152}
+# PSUM case=3 cycle=34 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={11610,9954,13212,11952}
+# PSUM case=3 cycle=35 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={5,12060,10323,13752}
+# PSUM case=3 cycle=36 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={50,6,12510,10692}
+# PSUM case=3 cycle=37 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={95,60,0,12960}
+# PSUM case=3 cycle=38 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={140,114,0,0}
+# PSUM case=3 cycle=39 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={315,168,0,0}
+# PSUM case=3 cycle=40 array_en=0 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={1080,330,0,0}
+# PSUM case=3 cycle=41 array_en=0 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={1080,330,0,0}
+# PSUM case=3 cycle=42 array_en=1 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={1080,330,0,0}
+# PSUM case=3 cycle=43 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={1845,1140,0,0}
+# PSUM case=3 cycle=44 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={2610,1950,0,0}
+# PSUM case=3 cycle=45 array_en=1 psum_zero=0010 psum_sel=0 psum_out(c0,c1,c2,c3)={1665,2760,0,0}
+# PSUM case=3 cycle=46 array_en=1 psum_zero=0030 psum_sel=0 psum_out(c0,c1,c2,c3)={4014,1710,0,0}
+# PSUM case=3 cycle=47 array_en=1 psum_zero=0070 psum_sel=0 psum_out(c0,c1,c2,c3)={6363,4140,0,0}
+# PSUM case=3 cycle=48 array_en=1 psum_zero=00f0 psum_sel=0 psum_out(c0,c1,c2,c3)={8712,6570,0,0}
+# PSUM case=3 cycle=49 array_en=1 psum_zero=00e0 psum_sel=0 psum_out(c0,c1,c2,c3)={2186,9000,0,0}
+# PSUM case=3 cycle=50 array_en=1 psum_zero=00c0 psum_sel=0 psum_out(c0,c1,c2,c3)={2690,2340,0,0}
+# PSUM case=3 cycle=51 array_en=1 psum_zero=0080 psum_sel=0 psum_out(c0,c1,c2,c3)={3194,2880,0,0}
+# PSUM case=3 cycle=52 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={3698,3420,0,0}
+# PSUM case=3 cycle=53 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={8676,3960,0,0}
+# PSUM case=3 cycle=54 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={10548,9000,0,0}
+# PSUM case=3 cycle=55 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={12420,10944,0,0}
+# PSUM case=3 cycle=56 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={14292,12888,0,0}
+# PSUM case=3 cycle=57 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={11061,14832,0,0}
+# DONE: case=3 reached S_DONE at cycle=58
+# PSUM case=3 cycle=58 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={11061,14832,0,0}
+# BEGIN: case=4 A=5x6 B=6x8 wgt_scale=1
+# PSUM case=4 cycle=2 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=4 cycle=3 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=4 cycle=4 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=4 cycle=5 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=4 cycle=6 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=4 cycle=7 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=4 cycle=8 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=4 cycle=9 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={1,0,0,0}
+# PSUM case=4 cycle=10 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={7,2,0,0}
+# PSUM case=4 cycle=11 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=4 cycle=12 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=4 cycle=13 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=4 cycle=14 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=4 cycle=15 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=4 cycle=16 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={19,26,21,4}
+# PSUM case=4 cycle=17 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={335,38,39,28}
+# PSUM case=4 cycle=18 array_en=1 psum_zero=0108 psum_sel=0 psum_out(c0,c1,c2,c3)={845,350,57,52}
+# PSUM case=4 cycle=19 array_en=1 psum_zero=0300 psum_sel=0 psum_out(c0,c1,c2,c3)={1355,890,365,76}
+# PSUM case=4 cycle=20 array_en=1 psum_zero=0700 psum_sel=0 psum_out(c0,c1,c2,c3)={1865,1430,935,380}
+# PSUM case=4 cycle=21 array_en=1 psum_zero=0f00 psum_sel=0 psum_out(c0,c1,c2,c3)={718,1970,1505,980}
+# PSUM case=4 cycle=22 array_en=1 psum_zero=0e00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,796,2075,1580}
+# PSUM case=4 cycle=23 array_en=1 psum_zero=0c00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,874,2180}
+# PSUM case=4 cycle=24 array_en=1 psum_zero=0800 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,952}
+# PSUM case=4 cycle=25 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={3605,0,0,0}
+# PSUM case=4 cycle=26 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,3770,0,0}
+# PSUM case=4 cycle=27 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=4 cycle=28 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=4 cycle=29 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=4 cycle=30 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=4 cycle=31 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=4 cycle=32 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=4 cycle=33 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=4 cycle=34 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,4100}
+# PSUM case=4 cycle=35 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={5,0,0,0}
+# PSUM case=4 cycle=36 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={35,6,0,0}
+# PSUM case=4 cycle=37 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=4 cycle=38 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=4 cycle=39 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=4 cycle=40 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=4 cycle=41 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=4 cycle=42 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={95,78,49,8}
+# PSUM case=4 cycle=43 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={395,114,91,56}
+# PSUM case=4 cycle=44 array_en=1 psum_zero=0108 psum_sel=0 psum_out(c0,c1,c2,c3)={1025,410,133,104}
+# PSUM case=4 cycle=45 array_en=1 psum_zero=0300 psum_sel=0 psum_out(c0,c1,c2,c3)={1655,1070,425,152}
+# PSUM case=4 cycle=46 array_en=1 psum_zero=0700 psum_sel=0 psum_out(c0,c1,c2,c3)={2285,1730,1115,440}
+# PSUM case=4 cycle=47 array_en=1 psum_zero=0f00 psum_sel=0 psum_out(c0,c1,c2,c3)={1030,2390,1805,1160}
+# PSUM case=4 cycle=48 array_en=1 psum_zero=0e00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,1108,2495,1880}
+# PSUM case=4 cycle=49 array_en=1 psum_zero=0c00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,1186,2600}
+# PSUM case=4 cycle=50 array_en=1 psum_zero=0800 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,1264}
+# PSUM case=4 cycle=51 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={4265,0,0,0}
+# PSUM case=4 cycle=52 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,4430,0,0}
+# PSUM case=4 cycle=53 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# DONE: case=4 reached S_DONE at cycle=54
+# PSUM case=4 cycle=54 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# BEGIN: case=5 A=5x6 B=6x8 wgt_scale=1
+# PSUM case=5 cycle=2 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=5 cycle=3 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=5 cycle=4 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=5 cycle=5 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=5 cycle=6 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=5 cycle=7 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=5 cycle=8 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=5 cycle=9 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={1,0,0,0}
+# PSUM case=5 cycle=10 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={7,2,0,0}
+# PSUM case=5 cycle=11 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=5 cycle=12 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=5 cycle=13 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={13,14,3,0}
+# PSUM case=5 cycle=14 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={19,26,21,4}
+# PSUM case=5 cycle=15 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={335,38,39,28}
+# PSUM case=5 cycle=16 array_en=1 psum_zero=0108 psum_sel=0 psum_out(c0,c1,c2,c3)={845,350,57,52}
+# PSUM case=5 cycle=17 array_en=1 psum_zero=0300 psum_sel=0 psum_out(c0,c1,c2,c3)={1355,890,365,76}
+# PSUM case=5 cycle=18 array_en=1 psum_zero=0700 psum_sel=0 psum_out(c0,c1,c2,c3)={1865,1430,935,380}
+# PSUM case=5 cycle=19 array_en=1 psum_zero=0f00 psum_sel=0 psum_out(c0,c1,c2,c3)={718,1970,1505,980}
+# PSUM case=5 cycle=20 array_en=1 psum_zero=0e00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,796,2075,1580}
+# PSUM case=5 cycle=21 array_en=1 psum_zero=0c00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,874,2180}
+# PSUM case=5 cycle=22 array_en=1 psum_zero=0800 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,952}
+# PSUM case=5 cycle=23 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={3605,0,0,0}
+# PSUM case=5 cycle=24 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,3770,0,0}
+# PSUM case=5 cycle=25 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=5 cycle=26 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=5 cycle=27 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=5 cycle=28 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=5 cycle=29 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=5 cycle=30 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=5 cycle=31 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,3935,0}
+# PSUM case=5 cycle=32 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,4100}
+# PSUM case=5 cycle=33 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={5,0,0,0}
+# PSUM case=5 cycle=34 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={35,6,0,0}
+# PSUM case=5 cycle=35 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=5 cycle=36 array_en=0 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=5 cycle=37 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={65,42,7,0}
+# PSUM case=5 cycle=38 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={95,78,49,8}
+# PSUM case=5 cycle=39 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={395,114,91,56}
+# PSUM case=5 cycle=40 array_en=1 psum_zero=0108 psum_sel=0 psum_out(c0,c1,c2,c3)={1025,410,133,104}
+# PSUM case=5 cycle=41 array_en=1 psum_zero=0300 psum_sel=0 psum_out(c0,c1,c2,c3)={1655,1070,425,152}
+# PSUM case=5 cycle=42 array_en=1 psum_zero=0700 psum_sel=0 psum_out(c0,c1,c2,c3)={2285,1730,1115,440}
+# PSUM case=5 cycle=43 array_en=1 psum_zero=0f00 psum_sel=0 psum_out(c0,c1,c2,c3)={1030,2390,1805,1160}
+# PSUM case=5 cycle=44 array_en=1 psum_zero=0e00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,1108,2495,1880}
+# PSUM case=5 cycle=45 array_en=1 psum_zero=0c00 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,1186,2600}
+# PSUM case=5 cycle=46 array_en=1 psum_zero=0800 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,1264}
+# PSUM case=5 cycle=47 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={4265,0,0,0}
+# PSUM case=5 cycle=48 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,4430,0,0}
+# PSUM case=5 cycle=49 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# DONE: case=5 reached S_DONE at cycle=50
+# PSUM case=5 cycle=50 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# BEGIN: case=6 A=2x3 B=3x2 wgt_scale=1 no_reset=1
+# PSUM case=6 cycle=57 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# PSUM case=6 cycle=58 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# PSUM case=6 cycle=59 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# PSUM case=6 cycle=60 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,4595,0}
+# PSUM case=6 cycle=61 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,4760}
+# PSUM case=6 cycle=62 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={1,0,0,0}
+# PSUM case=6 cycle=63 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={4,2,0,0}
+# PSUM case=6 cycle=64 array_en=1 psum_zero=000f psum_sel=0 psum_out(c0,c1,c2,c3)={0,8,0,0}
+# PSUM case=6 cycle=65 array_en=1 psum_zero=000e psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+# PSUM case=6 cycle=66 array_en=1 psum_zero=000c psum_sel=0 psum_out(c0,c1,c2,c3)={22,0,0,0}
+# PSUM case=6 cycle=67 array_en=0 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={49,28,0,0}
+# DONE: case=6 reached S_DONE at cycle=68
+# PSUM case=6 cycle=68 array_en=0 psum_zero=0008 psum_sel=0 psum_out(c0,c1,c2,c3)={49,28,0,0}
+# BEGIN: case=7 A=5x3 B=3x2 wgt_scale=10
+# CASE7 TRACE LEGEND:
+#   ctrl: state hold pipe_run array_en
+#   loop: n_tile_idx wgt_replay_idx act_k_idx wgt_k_idx act_m_block_idx wgt_tile_done act_tile_done wgt_replay_done
+#   act : stream_valid/ready act_output_valid act_array_data={row0,row1,row2,row3}
+#   wgt : stream_valid/ready wgt_output_valid wgt_array_data={col0,col1,col2,col3} wgt_ld_phase
+#   psum: psum_zero psum_sel psum_data={col3,col2,col1,col0}
+# case=7 cycle=2 state=1 array_en=0 | o_act_array_data(row0,row1,row2,row3)={0,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={0,0,0,0} wgt_ld=0001 psum_zero=0000 exp_psum_zero=xxxx
+# PSUM case=7 cycle=2 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+#   rows r0={0,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,0,0,0}
+# PSUM case=7 cycle=3 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+#   rows r0={0,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,0,0,0}
+# case=7 cycle=3 state=1 array_en=0 | o_act_array_data(row0,row1,row2,row3)={0,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={0,0,0,0} wgt_ld=0001 psum_zero=0000 exp_psum_zero=xxxx
+# case=7 cycle=4 state=2 array_en=0 | o_act_array_data(row0,row1,row2,row3)={0,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={0,0,0,0} wgt_ld=0001 psum_zero=0000 exp_psum_zero=xxxx
+# PSUM case=7 cycle=4 array_en=0 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+#   rows r0={0,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,0,0,0}
+# PSUM case=7 cycle=5 array_en=1 psum_zero=0000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+#   rows r0={0,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,0,0,0}
+# case=7 cycle=5 state=2 array_en=1 | o_act_array_data(row0,row1,row2,row3)={0,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={10,0,0,0} wgt_ld=0001 psum_zero=0000 exp_psum_zero=0000
+# case=7 cycle=6 state=3 array_en=0 | o_act_array_data(row0,row1,row2,row3)={1,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={30,20,0,0} wgt_ld=0010 psum_zero=0001 exp_psum_zero=xxxx
+# PSUM case=7 cycle=6 array_en=0 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+#   rows r0={0,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,0,0,0}
+# PSUM case=7 cycle=7 array_en=0 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+#   rows r0={0,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,0,0,0}
+# case=7 cycle=7 state=3 array_en=0 | o_act_array_data(row0,row1,row2,row3)={1,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={30,20,0,0} wgt_ld=0010 psum_zero=0001 exp_psum_zero=xxxx
+# case=7 cycle=8 state=2 array_en=1 | o_act_array_data(row0,row1,row2,row3)={1,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={30,20,0,0} wgt_ld=0010 psum_zero=0001 exp_psum_zero=0001
+# PSUM case=7 cycle=8 array_en=1 psum_zero=0001 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+#   rows r0={0,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,0,0,0}
+# PSUM case=7 cycle=9 array_en=1 psum_zero=0003 psum_sel=0 psum_out(c0,c1,c2,c3)={10,0,0,0}
+#   rows r0={10,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,0,0,0}
+# case=7 cycle=9 state=2 array_en=1 | o_act_array_data(row0,row1,row2,row3)={4,2,0,0} | o_wgt_array_data(col0,col1,col2,col3)={50,40,0,0} wgt_ld=0100 psum_zero=0003 exp_psum_zero=0003
+# case=7 cycle=10 state=2 array_en=1 | o_act_array_data(row0,row1,row2,row3)={7,5,3,0} | o_wgt_array_data(col0,col1,col2,col3)={10,60,0,0} wgt_ld=1000 psum_zero=0007 exp_psum_zero=0007
+# PSUM case=7 cycle=10 array_en=1 psum_zero=0007 psum_sel=0 psum_out(c0,c1,c2,c3)={40,20,0,0}
+#   rows r0={40,20,0,0} r1={70,0,0,0} r2={0,0,0,0} r3={0,0,0,0}
+# PSUM case=7 cycle=11 array_en=1 psum_zero=100f psum_sel=0 psum_out(c0,c1,c2,c3)={70,80,0,0}
+#   rows r0={70,80,0,0} r1={190,100,0,0} r2={220,0,0,0} r3={0,0,0,0}
+# case=7 cycle=11 state=2 array_en=1 | o_act_array_data(row0,row1,row2,row3)={10,8,6,13} | o_wgt_array_data(col0,col1,col2,col3)={30,20,0,0} wgt_ld=0001 psum_zero=100f exp_psum_zero=100f
+# case=7 cycle=12 state=4 array_en=1 | o_act_array_data(row0,row1,row2,row3)={14,11,9,0} | o_wgt_array_data(col0,col1,col2,col3)={50,40,0,0} wgt_ld=0010 psum_zero=300e exp_psum_zero=300e
+# PSUM case=7 cycle=12 array_en=1 psum_zero=300e psum_sel=0 psum_out(c0,c1,c2,c3)={100,140,0,0}
+#   rows r0={100,140,0,0} r1={310,280,0,0} r2={490,280,0,0} r3={130,0,0,0}
+# PSUM case=7 cycle=13 array_en=1 psum_zero=700c psum_sel=0 psum_out(c0,c1,c2,c3)={550,200,0,0}
+#   rows r0={550,200,0,0} r1={430,460,0,0} r2={760,640,0,0} r3={0,260,0,0}
+# case=7 cycle=13 state=4 array_en=1 | o_act_array_data(row0,row1,row2,row3)={0,15,12,0} | o_wgt_array_data(col0,col1,col2,col3)={0,60,0,0} wgt_ld=0100 psum_zero=700c exp_psum_zero=700c
+# case=7 cycle=14 state=4 array_en=1 | o_act_array_data(row0,row1,row2,row3)={0,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={0,0,0,0} wgt_ld=1000 psum_zero=f008 exp_psum_zero=f008
+# PSUM case=7 cycle=14 array_en=1 psum_zero=f008 psum_sel=0 psum_out(c0,c1,c2,c3)={0,820,0,0}
+#   rows r0={0,820,0,0} r1={1300,640,0,0} r2={1030,1000,0,0} r3={0,0,0,0}
+# PSUM case=7 cycle=15 array_en=1 psum_zero=e000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+#   rows r0={0,0,0,0} r1={0,1720,0,0} r2={1300,1360,0,0} r3={0,0,0,0}
+# case=7 cycle=15 state=4 array_en=1 | o_act_array_data(row0,row1,row2,row3)={0,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={0,0,0,0} wgt_ld=0001 psum_zero=e000 exp_psum_zero=e000
+# case=7 cycle=16 state=4 array_en=1 | o_act_array_data(row0,row1,row2,row3)={0,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={0,0,0,0} wgt_ld=0010 psum_zero=c000 exp_psum_zero=c000
+# PSUM case=7 cycle=16 array_en=1 psum_zero=c000 psum_sel=0 psum_out(c0,c1,c2,c3)={0,0,0,0}
+#   rows r0={0,0,0,0} r1={0,0,0,0} r2={0,1720,0,0} r3={1300,0,0,0}
+# PSUM case=7 cycle=17 array_en=0 psum_zero=8000 psum_sel=0 psum_out(c0,c1,c2,c3)={1300,0,0,0}
+#   rows r0={1300,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,1720,0,0}
+# case=7 cycle=17 state=4 array_en=0 | o_act_array_data(row0,row1,row2,row3)={0,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={0,0,0,0} wgt_ld=0100 psum_zero=8000 exp_psum_zero=xxxx
+# DONE: case=7 reached S_DONE at cycle=18
+# case=7 cycle=18 state=6 array_en=0 | o_act_array_data(row0,row1,row2,row3)={0,0,0,0} | o_wgt_array_data(col0,col1,col2,col3)={0,0,0,0} wgt_ld=0100 psum_zero=8000 exp_psum_zero=xxxx
+# PSUM case=7 cycle=18 array_en=0 psum_zero=8000 psum_sel=0 psum_out(c0,c1,c2,c3)={1300,0,0,0}
+#   rows r0={1300,0,0,0} r1={0,0,0,0} r2={0,0,0,0} r3={0,1720,0,0}
+# ** Note: $finish    : ./version4/sequencer_tb.v(587)
+#    Time: 3110 ns  Iteration: 1  Instance: /sequencer_tb
+# End time: 23:08:13 on May 28,2026, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
