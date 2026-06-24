@@ -1,0 +1,274 @@
+Magic 271485
+Revision Verdi_O-2018.09-SP2
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 27 1856 569 220 162
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/home/fzh/project/NPU_LINUX/version4_1/wave.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 120841371.027115 121088862.198483
+cursor 120945000.000000
+marker 47135000.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+; visible top row signal index
+top 1
+; marker line index
+markerPos 15
+
+; Run Time Signal and Member
+; userBusMem member ...
+; saveRunSig name
+activeDirFile "" "/home/fzh/project/NPU_LINUX/version4_1/wave.fsdb"
+userBusMem /sequencer_tb/dut/i_psum_data[31]
+userBusMem /sequencer_tb/dut/i_psum_data[30]
+userBusMem /sequencer_tb/dut/i_psum_data[29]
+userBusMem /sequencer_tb/dut/i_psum_data[28]
+userBusMem /sequencer_tb/dut/i_psum_data[27]
+userBusMem /sequencer_tb/dut/i_psum_data[26]
+userBusMem /sequencer_tb/dut/i_psum_data[25]
+userBusMem /sequencer_tb/dut/i_psum_data[24]
+userBusMem /sequencer_tb/dut/i_psum_data[23]
+userBusMem /sequencer_tb/dut/i_psum_data[22]
+userBusMem /sequencer_tb/dut/i_psum_data[21]
+userBusMem /sequencer_tb/dut/i_psum_data[20]
+userBusMem /sequencer_tb/dut/i_psum_data[19]
+userBusMem /sequencer_tb/dut/i_psum_data[18]
+userBusMem /sequencer_tb/dut/i_psum_data[17]
+userBusMem /sequencer_tb/dut/i_psum_data[16]
+userBusMem /sequencer_tb/dut/i_psum_data[15]
+userBusMem /sequencer_tb/dut/i_psum_data[14]
+userBusMem /sequencer_tb/dut/i_psum_data[13]
+userBusMem /sequencer_tb/dut/i_psum_data[12]
+userBusMem /sequencer_tb/dut/i_psum_data[11]
+userBusMem /sequencer_tb/dut/i_psum_data[10]
+userBusMem /sequencer_tb/dut/i_psum_data[9]
+userBusMem /sequencer_tb/dut/i_psum_data[8]
+userBusMem /sequencer_tb/dut/i_psum_data[7]
+userBusMem /sequencer_tb/dut/i_psum_data[6]
+userBusMem /sequencer_tb/dut/i_psum_data[5]
+userBusMem /sequencer_tb/dut/i_psum_data[4]
+userBusMem /sequencer_tb/dut/i_psum_data[3]
+userBusMem /sequencer_tb/dut/i_psum_data[2]
+userBusMem /sequencer_tb/dut/i_psum_data[1]
+userBusMem /sequencer_tb/dut/i_psum_data[0]
+saveRunSig "psum1[31:0]"
+
+; Run Time Signal and Member
+; userBusMem member ...
+; saveRunSig name
+userBusMem /sequencer_tb/dut/i_psum_data[63]
+userBusMem /sequencer_tb/dut/i_psum_data[62]
+userBusMem /sequencer_tb/dut/i_psum_data[61]
+userBusMem /sequencer_tb/dut/i_psum_data[60]
+userBusMem /sequencer_tb/dut/i_psum_data[59]
+userBusMem /sequencer_tb/dut/i_psum_data[58]
+userBusMem /sequencer_tb/dut/i_psum_data[57]
+userBusMem /sequencer_tb/dut/i_psum_data[56]
+userBusMem /sequencer_tb/dut/i_psum_data[55]
+userBusMem /sequencer_tb/dut/i_psum_data[54]
+userBusMem /sequencer_tb/dut/i_psum_data[53]
+userBusMem /sequencer_tb/dut/i_psum_data[52]
+userBusMem /sequencer_tb/dut/i_psum_data[51]
+userBusMem /sequencer_tb/dut/i_psum_data[50]
+userBusMem /sequencer_tb/dut/i_psum_data[49]
+userBusMem /sequencer_tb/dut/i_psum_data[48]
+userBusMem /sequencer_tb/dut/i_psum_data[47]
+userBusMem /sequencer_tb/dut/i_psum_data[46]
+userBusMem /sequencer_tb/dut/i_psum_data[45]
+userBusMem /sequencer_tb/dut/i_psum_data[44]
+userBusMem /sequencer_tb/dut/i_psum_data[43]
+userBusMem /sequencer_tb/dut/i_psum_data[42]
+userBusMem /sequencer_tb/dut/i_psum_data[41]
+userBusMem /sequencer_tb/dut/i_psum_data[40]
+userBusMem /sequencer_tb/dut/i_psum_data[39]
+userBusMem /sequencer_tb/dut/i_psum_data[38]
+userBusMem /sequencer_tb/dut/i_psum_data[37]
+userBusMem /sequencer_tb/dut/i_psum_data[36]
+userBusMem /sequencer_tb/dut/i_psum_data[35]
+userBusMem /sequencer_tb/dut/i_psum_data[34]
+userBusMem /sequencer_tb/dut/i_psum_data[33]
+userBusMem /sequencer_tb/dut/i_psum_data[32]
+saveRunSig "NewBus[63:32]"
+
+; rename signal list
+; addRenameSig new_name org_name
+
+addRenameSig "/psum2" "/NewBus[63:32]"
+
+; rename signal list
+; addRenameSig new_name org_name
+
+addRenameSig "/psum2[31:0]" "/psum2" keep
+
+; Run Time Signal and Member
+; userBusMem member ...
+; saveRunSig name
+userBusMem /sequencer_tb/dut/i_psum_data[95]
+userBusMem /sequencer_tb/dut/i_psum_data[94]
+userBusMem /sequencer_tb/dut/i_psum_data[93]
+userBusMem /sequencer_tb/dut/i_psum_data[92]
+userBusMem /sequencer_tb/dut/i_psum_data[91]
+userBusMem /sequencer_tb/dut/i_psum_data[90]
+userBusMem /sequencer_tb/dut/i_psum_data[89]
+userBusMem /sequencer_tb/dut/i_psum_data[88]
+userBusMem /sequencer_tb/dut/i_psum_data[87]
+userBusMem /sequencer_tb/dut/i_psum_data[86]
+userBusMem /sequencer_tb/dut/i_psum_data[85]
+userBusMem /sequencer_tb/dut/i_psum_data[84]
+userBusMem /sequencer_tb/dut/i_psum_data[83]
+userBusMem /sequencer_tb/dut/i_psum_data[82]
+userBusMem /sequencer_tb/dut/i_psum_data[81]
+userBusMem /sequencer_tb/dut/i_psum_data[80]
+userBusMem /sequencer_tb/dut/i_psum_data[79]
+userBusMem /sequencer_tb/dut/i_psum_data[78]
+userBusMem /sequencer_tb/dut/i_psum_data[77]
+userBusMem /sequencer_tb/dut/i_psum_data[76]
+userBusMem /sequencer_tb/dut/i_psum_data[75]
+userBusMem /sequencer_tb/dut/i_psum_data[74]
+userBusMem /sequencer_tb/dut/i_psum_data[73]
+userBusMem /sequencer_tb/dut/i_psum_data[72]
+userBusMem /sequencer_tb/dut/i_psum_data[71]
+userBusMem /sequencer_tb/dut/i_psum_data[70]
+userBusMem /sequencer_tb/dut/i_psum_data[69]
+userBusMem /sequencer_tb/dut/i_psum_data[68]
+userBusMem /sequencer_tb/dut/i_psum_data[67]
+userBusMem /sequencer_tb/dut/i_psum_data[66]
+userBusMem /sequencer_tb/dut/i_psum_data[65]
+userBusMem /sequencer_tb/dut/i_psum_data[64]
+saveRunSig "psum3[95:64]"
+
+; rename signal list
+; addRenameSig new_name org_name
+
+addRenameSig "/psum3[31:0]" "/psum3[95:64]"
+
+; Run Time Signal and Member
+; userBusMem member ...
+; saveRunSig name
+userBusMem /sequencer_tb/dut/i_psum_data[127]
+userBusMem /sequencer_tb/dut/i_psum_data[126]
+userBusMem /sequencer_tb/dut/i_psum_data[125]
+userBusMem /sequencer_tb/dut/i_psum_data[124]
+userBusMem /sequencer_tb/dut/i_psum_data[123]
+userBusMem /sequencer_tb/dut/i_psum_data[122]
+userBusMem /sequencer_tb/dut/i_psum_data[121]
+userBusMem /sequencer_tb/dut/i_psum_data[120]
+userBusMem /sequencer_tb/dut/i_psum_data[119]
+userBusMem /sequencer_tb/dut/i_psum_data[118]
+userBusMem /sequencer_tb/dut/i_psum_data[117]
+userBusMem /sequencer_tb/dut/i_psum_data[116]
+userBusMem /sequencer_tb/dut/i_psum_data[115]
+userBusMem /sequencer_tb/dut/i_psum_data[114]
+userBusMem /sequencer_tb/dut/i_psum_data[113]
+userBusMem /sequencer_tb/dut/i_psum_data[112]
+userBusMem /sequencer_tb/dut/i_psum_data[111]
+userBusMem /sequencer_tb/dut/i_psum_data[110]
+userBusMem /sequencer_tb/dut/i_psum_data[109]
+userBusMem /sequencer_tb/dut/i_psum_data[108]
+userBusMem /sequencer_tb/dut/i_psum_data[107]
+userBusMem /sequencer_tb/dut/i_psum_data[106]
+userBusMem /sequencer_tb/dut/i_psum_data[105]
+userBusMem /sequencer_tb/dut/i_psum_data[104]
+userBusMem /sequencer_tb/dut/i_psum_data[103]
+userBusMem /sequencer_tb/dut/i_psum_data[102]
+userBusMem /sequencer_tb/dut/i_psum_data[101]
+userBusMem /sequencer_tb/dut/i_psum_data[100]
+userBusMem /sequencer_tb/dut/i_psum_data[99]
+userBusMem /sequencer_tb/dut/i_psum_data[98]
+userBusMem /sequencer_tb/dut/i_psum_data[97]
+userBusMem /sequencer_tb/dut/i_psum_data[96]
+saveRunSig "psum4[127:96]"
+
+; rename signal list
+; addRenameSig new_name org_name
+
+addRenameSig "/psum4[31:0]" "/psum4[127:96]"
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByValue
+
+
+addGroup "G1"
+activeDirFile "" "/home/fzh/project/NPU_LINUX/version4_1/wave.fsdb"
+addSignal -h 15 /sequencer_tb/dut/i_clk
+addSignal -h 15 -UNSIGNED -UDEC /sequencer_tb/cycle[31:0]
+addSignal -h 15 /sequencer_tb/dut/o_wgt_array_ld[3:0]
+addSignal -h 15 -UNSIGNED -UDEC /sequencer_tb/current_case[31:0]
+addSignal -h 15 /sequencer_tb/dut/act_group_cnt[13:0]
+addSignal -h 15 -holdScope n_size_r[15:0]
+addSignal -h 15 -holdScope state[2:0]
+addSignal -h 15 -holdScope wgt_k_cnt[15:0]
+addSignal -h 15 -UNSIGNED -UDEC /psum1[31:0]
+addSignal -h 15 -UNSIGNED -UDEC /psum2[31:0]
+addSignal -h 15 -UNSIGNED -UDEC /psum3[31:0]
+addSignal -h 15 -UNSIGNED -UDEC /psum4[31:0]
+addSignal -h 15 -UNSIGNED -BIN /sequencer_tb/dut/o_psum_valid[3:0]
+addSignal -h 15 -UNSIGNED -BIN -holdScope psum_valid[1:0]
+addSignal -h 15 -holdScope psum_valid_mode[1:0]
+addSignal -h 15 -UNSIGNED -BIN -holdScope o_psum_zero[15:0]
+addSignal -h 15 -holdScope o_psum_sel[1:0]
+addSignal -h 15 -holdScope o_array_en
+addGroup "G2" -e FALSE
+addSignal -h 15 /sequencer_tb/array_u/gen_row[0]/gen_col[0]/pe_u/psum_in[31:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope psum_out[31:0]
+addGroup "G3"
+addSignal -h 15 /sequencer_tb/dut/lane_sequen[1:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope o_act_array_data[31:0]
+addSignal -h 15 -holdScope o_wgt_array_data[31:0]
+addSignal -h 15 -holdScope wgt_k_cnt[15:0]
+addSignal -h 15 -holdScope act_k_cnt[15:0]
+addSignal -h 15 -holdScope sel_trigger
+addSignal -h 15 -holdScope wgt_done_cnt[2:0]
+addSignal -h 15 -holdScope act_group_cnt[13:0]
+addSignal -h 15 -holdScope wgt_done
+addSignal -h 15 -holdScope wgt_all_read_done
+addSignal -h 15 -holdScope wgt_group_cnt[13:0]
+addSignal -h 15 -holdScope wgt_group_cnt_end
+addGroup "G4"
+addSignal -h 15 /sequencer_tb/dut/act_out_en
+addGroup "G5"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+activeDirFile "" "/home/fzh/project/NPU_LINUX/version4_1/wave.fsdb"
+
+GETSIGNALFORM_SCOPE_HIERARCHY_BEGIN
+getSignalForm close
+
+"/sequencer_tb"
+
+SCOPE_LIST_BEGIN
+"/sequencer_tb"
+"/sequencer_tb/array_u"
+"/sequencer_tb/dut"
+SCOPE_LIST_END
+
+GETSIGNALFORM_SCOPE_HIERARCHY_END
+
+

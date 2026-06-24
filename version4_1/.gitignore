@@ -1,0 +1,13 @@
+csrc/
+simv
+simv.daidir/
+simv_fsdb
+simv_fsdb.daidir/
+ucli.key
+vc_hdrs.h
+*.log
+*.fsdb
+*.vpd
+novas.*
+verdiLog/
+DVEfiles/
