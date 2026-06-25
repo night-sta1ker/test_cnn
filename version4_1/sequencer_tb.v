@@ -102,6 +102,9 @@ module sequencer_tb;
     reg                      result_seen [0:RESULT_MAX_M-1][0:RESULT_MAX_N-1];
     integer                  result_duplicate_count;
     integer                  result_capture_error_count;
+    integer                  array_en_cycles;
+    integer                  case_cycles;
+    reg                      case_measure_en;
     reg                      result_first_error_reported;
     reg                      result_active [0:RESULT_SLOTS-1];
     integer                  result_delay [0:RESULT_SLOTS-1];
@@ -497,7 +500,18 @@ module sequencer_tb;
         integer exp_val;
         integer missing_count;
         integer mismatch_count;
+        integer util_per_mille;
+        integer active_per_mille;
         begin
+            util_per_mille = (array_en_cycles == 0) ? 0 :
+                ((tm * tn * tk * 1000) / (16 * array_en_cycles));
+            active_per_mille = (case_cycles == 0) ? 0 :
+                ((array_en_cycles * 1000) / case_cycles);
+            $display("UTIL: case=%0d M=%0d K=%0d N=%0d case_cycles=%0d array_en=%0d util=%0d.%03d active=%0d.%03d",
+                     case_id, tm, tk, tn, case_cycles, array_en_cycles,
+                     util_per_mille / 1000, util_per_mille % 1000,
+                     active_per_mille / 1000, active_per_mille % 1000);
+
             missing_count = 0;
             mismatch_count = 0;
             for (row = 0; row < tm; row = row + 1) begin
@@ -538,6 +552,9 @@ module sequencer_tb;
             current_case = case_id;
             wgt_value_scale = wgt_scale;
             case_timed_out = 1'b0;
+            array_en_cycles = 0;
+            case_cycles = 0;
+            case_measure_en = 1'b0;
             load_stream_case(tm, tk, tn, act_base, wgt_base);
             clear_result_capture();
             build_golden_fifo(tm, tk, tn, wgt_scale);
@@ -557,10 +574,12 @@ module sequencer_tb;
             i_k_size = tk;
             i_n_size = tn;
             i_size_ld = 1'b1;
+            case_measure_en = 1'b1;
             @(negedge i_clk);
             i_size_ld = 1'b0;
 
             wait_done_state();
+            case_measure_en = 1'b0;
             if (case_timed_out) begin
                 print_case_info(case_id, tm, tk, tn, wgt_scale);
                 $display("RESULT CHECK FAIL: case=%0d timeout waiting for S_DONE", case_id);
@@ -585,6 +604,9 @@ module sequencer_tb;
         begin
             current_case = case_id;
             wgt_value_scale = wgt_scale;
+            array_en_cycles = 0;
+            case_cycles = 0;
+            case_measure_en = 1'b0;
             load_stream_case(tm, tk, tn, act_base, wgt_base);
             clear_result_capture();
             build_golden_fifo(tm, tk, tn, wgt_scale);
@@ -602,10 +624,12 @@ module sequencer_tb;
             i_k_size = tk;
             i_n_size = tn;
             i_size_ld = 1'b1;
+            case_measure_en = 1'b1;
             @(negedge i_clk);
             i_size_ld = 1'b0;
 
             wait_done_state();
+            case_measure_en = 1'b0;
             check_result_capture(case_id, tm, tk, tn, wgt_scale);
             wait_idle_state();
             repeat (4) @(negedge i_clk);
@@ -799,6 +823,11 @@ module sequencer_tb;
     end
 
     always @(posedge i_clk) begin
+        if (i_rst_n && case_measure_en)
+            case_cycles = case_cycles + 1;
+        if (i_rst_n && case_measure_en && o_array_en)
+            array_en_cycles = array_en_cycles + 1;
+
         if (i_rst_n && (dut.state == 3'd2) &&
             i_act_stream_valid_dut && o_act_stream_ready &&
             !(i_wgt_stream_valid_dut && o_wgt_stream_ready) && !dut.wgt_all_read_done) begin
@@ -873,6 +902,9 @@ module sequencer_tb;
         pass_count = 0;
         fail_count = 0;
         case_timed_out = 1'b0;
+        array_en_cycles = 0;
+        case_cycles = 0;
+        case_measure_en = 1'b0;
         case_id_next = 1;
         wgt_value_scale = 1;
         act_base_delay_cfg = 4'd0;
