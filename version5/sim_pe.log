@@ -1,0 +1,11 @@
+Command: /home/fzh/project/test_cnn/version5/./simv_pe -l sim_pe.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Aug 17 15:13 2026
+SYSTOLIC PE TEST PASS
+$finish called from file "systolic_pe_tb.v", line 63.
+$finish at simulation time                56000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 56000 ps
+CPU Time:      0.220 seconds;       Data structure size:   0.0Mb
+Mon Aug 17 15:13:42 2026

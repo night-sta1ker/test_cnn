@@ -1,0 +1,11 @@
+Command: /home/fzh/project/test_cnn/version5/./simv_act_sram -l sim_act_sram.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Aug 17 15:13 2026
+ACTIVATION SRAM TEST PASS
+$finish called from file "activation_sram_tb.v", line 128.
+$finish at simulation time             41100000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 41100000 ps
+CPU Time:      0.230 seconds;       Data structure size:   0.0Mb
+Mon Aug 17 15:13:36 2026

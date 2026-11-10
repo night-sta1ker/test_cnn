@@ -1,0 +1,14 @@
+./Sequencer.v
+./SystolicArray4x4.v
+./SystolicPE.v
+./ActivationSram.v
+./ActBuffer.v
+./WgtBuffer.v
+./ParamBuffer.v
+./PostProcessWriter.v
+./Im2Col3x3.v
+./MaxPool2x2.v
+./ArgMax10.v
+./LayerController.v
+./NpuInferenceCore.v
+./sequencer_tb.v

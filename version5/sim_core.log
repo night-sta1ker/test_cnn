@@ -1,0 +1,24 @@
+Command: /home/fzh/project/test_cnn/version5/./simv_core -l sim_core.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Aug 17 16:20 2026
+E2E CASE PASS index=0 label=7 class=7 score=102 cycles=18784
+E2E CASE PASS index=1 label=2 class=2 score=106 cycles=18784
+E2E CASE PASS index=2 label=1 class=1 score=90 cycles=18784
+E2E CASE PASS index=3 label=0 class=0 score=103 cycles=18784
+E2E CASE PASS index=4 label=4 class=4 score=93 cycles=18784
+E2E CASE PASS index=5 label=1 class=1 score=90 cycles=18784
+E2E CASE PASS index=6 label=4 class=4 score=84 cycles=18784
+E2E CASE PASS index=7 label=9 class=9 score=90 cycles=18784
+E2E CASE PASS index=8 label=5 class=5 score=97 cycles=18784
+E2E CASE PASS index=9 label=9 class=9 score=94 cycles=18784
+NPU E2E TEST PASS cases=10/10 total_cycles=190504
+ARRAY UTIL conv1 stage_cycles=35490 enabled_cycles=16460
+ARRAY UTIL conv2 stage_cycles=57850 enabled_cycles=23920
+ARRAY UTIL fc stage_cycles=15390 enabled_cycles=6240
+$finish called from file "npu_inference_core_tb.v", line 294.
+$finish at simulation time           1905126000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1905126000 ps
+CPU Time:      0.690 seconds;       Data structure size:   0.2Mb
+Mon Aug 17 16:20:58 2026

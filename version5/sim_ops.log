@@ -1,0 +1,11 @@
+Command: /home/fzh/project/test_cnn/version5/./simv_ops -l sim_ops.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Aug 17 15:13 2026
+POOL ARGMAX TEST PASS
+$finish called from file "pool_argmax_tb.v", line 230.
+$finish at simulation time            152770000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 152770000 ps
+CPU Time:      0.230 seconds;       Data structure size:   0.0Mb
+Mon Aug 17 15:13:44 2026
